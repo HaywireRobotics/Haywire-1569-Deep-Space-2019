@@ -13,13 +13,14 @@ import edu.wpi.first.wpilibj.command.Scheduler
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 
-import frc.robot.commands.ExampleCommand
-import frc.robot.subsystems.ExampleSubsystem
+import frc.robot.commands.*
+import frc.robot.subsystems.*
 
 class Robot: TimedRobot() {
 
   companion object {
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
+    val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     var m_oi: OI? = null
   }
 
@@ -96,6 +97,7 @@ class Robot: TimedRobot() {
     // continue until interrupted by another command, remove
     // this line or comment it out.
     m_autonomousCommand?.cancel()
+    TeleopCommand().start()
   }
 
   /**
