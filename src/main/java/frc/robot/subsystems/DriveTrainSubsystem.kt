@@ -16,15 +16,18 @@ import frc.robot.RobotMap
  * Add your docs here.
  */
 class DriveTrainSubsystem: Subsystem() {
-  val frontLeft: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftFront)
-  val frontRight: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightFront)
-  val backLeft: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftBack)
-  val backRight: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightBack)
+  // Left drive train motors
+  private val leftFront: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftFront)
+  private val leftRear: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftRear)
 
-  private val driveleftgroup = SpeedControllerGroup(frontLeft, backLeft)
-  private val driverightgroup = SpeedControllerGroup(frontRight, backRight)
+  // Right drive train motors
+  private val rightFront: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightFront)
+  private val rightRear: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightRear)
+
+  private val driveleftgroup = SpeedControllerGroup(leftFront, leftRear)
+  private val driverightgroup = SpeedControllerGroup(rightFront, rightRear)
   
-  val myrobot = DifferentialDrive(driveleftgroup, driverightgroup)
+  private val myRobot = DifferentialDrive(driveleftgroup, driverightgroup)
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
       
@@ -32,4 +35,6 @@ class DriveTrainSubsystem: Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+
+  fun tankDrive(leftPower: Double, rightPower: Double) = myRobot.tankDrive(leftPower, rightPower, false)
 }

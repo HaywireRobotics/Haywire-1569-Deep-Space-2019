@@ -8,6 +8,7 @@
 package frc.robot
 
 import edu.wpi.first.wpilibj.Joystick
+import frc.robot.RobotMap
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,6 +42,6 @@ class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(ExampleCommand())
-  val leftJoystick: Joystick = Joystick(0)
-  val rightJoystick: Joystick = Joystick(1)
+  val leftJoystick: Joystick = Joystick(RobotMap.leftJoystick)
+  val rightJoystick: Joystick = Joystick(RobotMap.rightJoystick)
 }

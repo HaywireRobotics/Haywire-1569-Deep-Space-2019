@@ -23,15 +23,15 @@ object RobotMap {
   // number and the module. For example you with a rangefinder:
   // val rangefinderPort = 1
   // val rangefinderModule = 1
-  /*
-  val frontLeft: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftFront)
-  val frontRight: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightFront)
-  val backLeft: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftBack)
-  val backRight: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightBack)
-   */
 
+  // Drivetrain motor ports
   val driveTrainLeftFront = 0
+  val driveTrainLeftRear = 1
+
   val driveTrainRightFront = 2
-  val driveTrainLeftBack = 1
-  val driveTrainRightBack = 3
+  val driveTrainRightRear = 3
+
+  // Joystick ports
+  val leftJoystick = 0
+  val rightJoystick = 1
 }
