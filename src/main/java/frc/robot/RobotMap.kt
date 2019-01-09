@@ -34,4 +34,21 @@ object RobotMap {
   // Joystick ports
   val leftJoystick = 0
   val rightJoystick = 1
+
+  // Motion Profiling
+  val maxVelocity = 5.0     // Meters per second
+  val maxAcceleration = 1.2 // Meters per second per second
+  val maxJerk = 1.0         // Jerk is how much we can increase acceleration per iteration without jerking
+  val deltaTime = 0.05      // Again not exactly sure but has probably something to do with the sampling rate that the trajectory plans for
+  val wheelbaseWidth = 1.5  // Meters
+
+  // Motion Execution
+  // Encoder details
+  val encoderTicksPerRevolution = 1000
+
+  // PIDVA
+  val proportionalGain = 1.0  // Jaci says that this is usually quite high
+  val integralGain = 0.0      // Jaci states that this is unused for motion profiling
+  val derivativeGain = 0.0    // Modify if unhappy with tracking
+  val accelerationGain = 0.0  // Modify if we want to get to a higher or lower speed faster
 }

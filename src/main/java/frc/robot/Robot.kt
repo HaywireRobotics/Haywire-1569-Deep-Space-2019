@@ -15,12 +15,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 
 import frc.robot.commands.*
 import frc.robot.subsystems.*
+import frc.robot.pathfinder.util.MotionProfiler
 
 class Robot: TimedRobot() {
 
   companion object {
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
+    val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
+    val m_motionProfiler: MotionProfiler = MotionProfiler()
     var m_oi: OI? = null
   }
 
