@@ -3,19 +3,21 @@ package frc.robot.subsystems
 import edu.wpi.first.wpilibj.command.Subsystem
 import edu.wpi.first.wpilibj.Encoder
 import edu.wpi.first.wpilibj.SerialPort
+import edu.wpi.first.wpilibj.AnalogInput
 import com.kauailabs.navx.frc.*
+
+import frc.robot.RobotMap
 
 /**
  *
  */
 class SensorSubsystem: Subsystem() {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  // Left: encoder1
-  // Right: encoder2
-  val encoder1: Encoder = Encoder(0, 1)
-  val encoder2: Encoder = Encoder(8, 9)
-  val navXMicroBoard: AHRS = AHRS(SerialPort.Port.kUSB)
+  val leftEncoder: Encoder = Encoder(RobotMap.leftEncoderPort1, RobotMap.leftEncoderPort2)
+  val rightEncoder: Encoder = Encoder(RobotMap.rightEncoderPort1, RobotMap.rightEncoderPort2)
+
+  val navXMicro: AHRS = AHRS(SerialPort.Port.kUSB)
+
+  val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.

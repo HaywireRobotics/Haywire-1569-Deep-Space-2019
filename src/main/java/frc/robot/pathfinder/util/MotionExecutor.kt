@@ -17,8 +17,8 @@ class MotionExecutor (val trajectoryContainer: TankTrajectoryContainer) {
     var runTrajFollower: Boolean = false
     
     init {  // Encoder configuration
-        leftFollower.configureEncoder(Robot.m_sensorSubsystem.encoder1.raw, RobotMap.encoderTicksPerRevolution, RobotMap.wheelbaseWidth)
-        rightFollower.configureEncoder(Robot.m_sensorSubsystem.encoder2.raw, RobotMap.encoderTicksPerRevolution, RobotMap.wheelbaseWidth)
+        leftFollower.configureEncoder(Robot.m_sensorSubsystem.leftEncoder.raw, RobotMap.encoderTicksPerRevolution, RobotMap.wheelbaseWidth)
+        rightFollower.configureEncoder(Robot.m_sensorSubsystem.rightEncoder.raw, RobotMap.encoderTicksPerRevolution, RobotMap.wheelbaseWidth)
     }
 
     init { // PIDVA configuration
@@ -57,11 +57,11 @@ class TankTrajectoryFollower(val parentObject: MotionExecutor, val leftFollower:
     }
 
     fun follow() {
-        leftPower = leftFollower.calculate(Robot.m_sensorSubsystem.encoder1.raw)
-        rightPower = rightFollower.calculate(Robot.m_sensorSubsystem.encoder2.raw)
+        leftPower = leftFollower.calculate(Robot.m_sensorSubsystem.leftEncoder.raw)
+        rightPower = rightFollower.calculate(Robot.m_sensorSubsystem.rightEncoder.raw)
         
         // Gyro correction
-        gyroHeading = Robot.m_sensorSubsystem.navXMicroBoard.rawAccelZ
+        gyroHeading = Robot.m_sensorSubsystem.navXMicro.rawAccelZ
         desiredHeading = Pathfinder.r2d(leftFollower.heading)
 
         angleDifference = Pathfinder.boundHalfDegrees(desiredHeading - gyroHeading);

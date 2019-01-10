@@ -10,5 +10,22 @@
     ".classpath": true,
     ".project": true
   },
-  "wpilib.online": true
+  "wpilib.online": true,
+  "cSpell.words": [
+    "accel",
+    "ahrs",
+    "drivetrain",
+    "jaci",
+    "kauailabs",
+    "navx",
+    "pidva",
+    "println",
+    "smartdashboard",
+    "teleop",
+    "teleoperated",
+    "traj",
+    "uncomment",
+    "waypoint",
+    "wpilibj"
+  ]
 }

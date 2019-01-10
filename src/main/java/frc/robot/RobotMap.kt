@@ -31,6 +31,17 @@ object RobotMap {
   val driveTrainRightFront = 2
   val driveTrainRightRear = 3
 
+  // Sensor Ports
+  // Analog
+  val lineSensorPort = 0
+
+  // Digital
+  val leftEncoderPort1 = 0
+  val leftEncoderPort2 = 1
+
+  val rightEncoderPort1 = 8
+  val rightEncoderPort2 = 9
+
   // Joystick ports
   val leftJoystick = 0
   val rightJoystick = 1

@@ -49,7 +49,10 @@ class Robot: TimedRobot() {
    * <p>This runs after the mode specific periodic functions, but before
    * LiveWindow and SmartDashboard integrated updating.
    */
-  override fun robotPeriodic() {}
+  override fun robotPeriodic() {
+    println("Value: " + m_sensorSubsystem.lineSensor.value.toString())
+    println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString())
+  }
 
   /**
    * This function is called once each time the robot enters Disabled mode.
