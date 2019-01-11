@@ -17,6 +17,7 @@
     "drivetrain",
     "jaci",
     "kauailabs",
+    "lvuser",
     "navx",
     "pidva",
     "println",
@@ -26,6 +27,7 @@
     "traj",
     "uncomment",
     "waypoint",
+    "waypoints",
     "wpilibj"
   ]
 }
