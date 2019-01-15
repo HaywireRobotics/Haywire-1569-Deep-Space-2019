@@ -9,6 +9,8 @@ package frc.robot.commands
 
 import edu.wpi.first.wpilibj.command.Command
 import frc.robot.Robot
+import frc.robot.RobotMap
+import frc.robot.commands.EjectHatchPanel
 
 /**
  * An example command. You can replace me with your own command.
@@ -26,6 +28,10 @@ class TeleopCommand: Command() {
   override fun execute () {
     // Drive based on joystick input
     Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
+    // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
+    //   println("Start Button!")
+    //   EjectHatchPanel().start()
+    // }
   }
 
   // Make this return true when this Command no longer needs to run execute()

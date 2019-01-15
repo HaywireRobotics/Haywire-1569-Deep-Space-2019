@@ -53,7 +53,7 @@ class Robot: TimedRobot() {
   override fun robotPeriodic() {
     // println("Value: " + m_sensorSubsystem.lineSensor.value.toString())
     // println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString())
-    println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString())
+    //println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString())
   }
 
   /**
