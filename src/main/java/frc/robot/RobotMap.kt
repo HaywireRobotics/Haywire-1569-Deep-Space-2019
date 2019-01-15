@@ -31,6 +31,10 @@ object RobotMap {
   val driveTrainRightFront = 2
   val driveTrainRightRear = 3
 
+  // Solenoid ports
+  val hatchpanelport1 = 0
+  val hatchpanelport2 = 1
+
   // Sensor Ports
   // Analog
   val lineSensorPort = 0
