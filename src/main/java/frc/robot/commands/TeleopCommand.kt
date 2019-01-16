@@ -9,23 +9,21 @@ package frc.robot.commands
 
 import edu.wpi.first.wpilibj.command.Command
 import frc.robot.Robot
-import frc.robot.RobotMap
-import frc.robot.commands.EjectHatchPanel
 
 /**
  * An example command. You can replace me with your own command.
  */
-class TeleopCommand: Command() {
+class TeleopCommand : Command() {
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_driveTrainSubsystem)
   }
 
   // Called just before this Command runs the first time
-  override fun initialize () {}
+  override fun initialize() {}
 
   // Called repeatedly when this Command is scheduled to run
-  override fun execute () {
+  override fun execute() {
     // Drive based on joystick input
     Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
@@ -35,14 +33,14 @@ class TeleopCommand: Command() {
   }
 
   // Make this return true when this Command no longer needs to run execute()
-  override fun isFinished (): Boolean {
+  override fun isFinished(): Boolean {
     return false
   }
 
   // Called once after isFinished returns true
-  override fun end () {}
+  override fun end() {}
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  override fun interrupted () {}
+  override fun interrupted() {}
 }

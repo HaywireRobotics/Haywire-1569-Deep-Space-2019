@@ -7,7 +7,7 @@ import jaci.pathfinder.modifiers.TankModifier
 
 import frc.robot.RobotMap
 
-class MotionProfiler () {
+class MotionProfiler() {
     fun generateTankMotionProfile(waypoints: Array<Waypoint>): TankTrajectoryContainer {
         var config: Trajectory.Config = Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, RobotMap.deltaTime, RobotMap.maxVelocity, RobotMap.maxAcceleration, RobotMap.maxJerk)
         var modifier: TankModifier = TankModifier(Pathfinder.generate(waypoints, config))

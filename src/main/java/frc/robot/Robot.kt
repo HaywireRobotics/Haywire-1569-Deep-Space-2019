@@ -17,7 +17,7 @@ import frc.robot.commands.*
 import frc.robot.subsystems.*
 import frc.robot.pathfinder.util.MotionProfiler
 
-class Robot: TimedRobot() {
+class Robot : TimedRobot() {
 
   companion object {
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
@@ -53,7 +53,7 @@ class Robot: TimedRobot() {
   override fun robotPeriodic() {
     // println("Value: " + m_sensorSubsystem.lineSensor.value.toString())
     // println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString())
-    //println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString())
+    // println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString())
   }
 
   /**
@@ -63,7 +63,7 @@ class Robot: TimedRobot() {
    */
   override fun disabledInit() {}
 
-  override fun disabledPeriodic () {
+  override fun disabledPeriodic() {
     Scheduler.getInstance().run()
   }
 
@@ -112,6 +112,8 @@ class Robot: TimedRobot() {
    * This function is called periodically during operator control
    */
   override fun teleopPeriodic() {
+    println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
+    println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
     Scheduler.getInstance().run()
   }
 
