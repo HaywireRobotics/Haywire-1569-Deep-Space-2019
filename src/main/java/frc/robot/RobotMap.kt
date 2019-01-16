@@ -55,7 +55,6 @@ object RobotMap {
 
   // Button Mappings
   val ejectorButton = 1
-  
 
   // Motion Profiling
   val maxVelocity = 5.0     // Meters per second
