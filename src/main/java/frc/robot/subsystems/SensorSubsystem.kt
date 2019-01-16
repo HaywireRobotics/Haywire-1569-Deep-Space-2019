@@ -4,14 +4,14 @@ import edu.wpi.first.wpilibj.command.Subsystem
 import edu.wpi.first.wpilibj.Encoder
 import edu.wpi.first.wpilibj.SerialPort
 import edu.wpi.first.wpilibj.AnalogInput
-import com.kauailabs.navx.frc.*
+import com.kauailabs.navx.frc.AHRS
 
 import frc.robot.RobotMap
 
 /**
  *
  */
-class SensorSubsystem: Subsystem() {
+class SensorSubsystem : Subsystem() {
   val leftEncoder: Encoder = Encoder(RobotMap.leftEncoderPort1, RobotMap.leftEncoderPort2)
   val rightEncoder: Encoder = Encoder(RobotMap.rightEncoderPort1, RobotMap.rightEncoderPort2)
 
