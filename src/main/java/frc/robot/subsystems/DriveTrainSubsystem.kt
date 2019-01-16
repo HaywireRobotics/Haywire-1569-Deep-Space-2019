@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem
 import edu.wpi.first.wpilibj.*
 import edu.wpi.first.wpilibj.drive.DifferentialDrive
 
+import frc.robot.commands.TeleopCommand
 import frc.robot.RobotMap
 /**
  * Add your docs here.
@@ -34,6 +35,7 @@ class DriveTrainSubsystem : Subsystem() {
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(TeleopCommand())
   }
 
   fun tankDrive(leftPower: Double, rightPower: Double) = myRobot.tankDrive(leftPower, rightPower, false)

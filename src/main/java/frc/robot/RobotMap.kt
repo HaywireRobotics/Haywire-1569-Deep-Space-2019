@@ -31,6 +31,12 @@ object RobotMap {
   val driveTrainRightFront = 2
   val driveTrainRightRear = 3
 
+  val hatchMotorPort = 4
+
+  // Solenoid ports
+  val hatchpanelport1 = 0
+  val hatchpanelport2 = 1
+
   // Sensor Ports
   // Analog
   val lineSensorPort = 0
@@ -45,6 +51,11 @@ object RobotMap {
   // Joystick ports
   val leftJoystick = 0
   val rightJoystick = 1
+  val manipulatorJoystick = 2
+
+  // Button Mappings
+  val ejectorButton = 1
+  
 
   // Motion Profiling
   val maxVelocity = 5.0     // Meters per second

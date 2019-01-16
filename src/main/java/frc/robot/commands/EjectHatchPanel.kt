@@ -8,41 +8,49 @@
 package frc.robot.commands
 
 import edu.wpi.first.wpilibj.command.Command
+import edu.wpi.first.wpilibj.Timer
 import frc.robot.Robot
-import frc.robot.RobotMap
-import frc.robot.commands.EjectHatchPanel
 
 /**
  * An example command. You can replace me with your own command.
  */
-class TeleopCommand : Command() {
+class EjectHatchPanel: Command() {
   init {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_driveTrainSubsystem)
+    requires(Robot.m_exampleSubsystem)
+    
   }
+  private val time: Timer = Timer ()
+  
+  
 
   // Called just before this Command runs the first time
-  override fun initialize() {}
+  override fun initialize () {
+    this.time.reset ()
+    this.time.start ()
+  }
 
   // Called repeatedly when this Command is scheduled to run
-  override fun execute() {
-    // Drive based on joystick input
-    Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
-    // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
-    //   println("Start Button!")
-    //   EjectHatchPanel().start()
-    // }
+  override fun execute () {
+    when (this.time.get ()> (0.5)) {  
+      false -> Robot.m_hatchPanelSubsystem.extendpistons()
+      true -> Robot.m_hatchPanelSubsystem.retractpistons()
+    
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
-  override fun isFinished(): Boolean {
-    return false
+    
+  override fun isFinished (): Boolean {
+    return this.time.hasPeriodPassed(0.6)
   }
 
   // Called once after isFinished returns true
-  override fun end() {}
+  override fun end () {
+    println("Hatch Released!")
+  }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  override fun interrupted() {}
+  override fun interrupted () {}
 }

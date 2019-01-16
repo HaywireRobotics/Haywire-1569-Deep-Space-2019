@@ -18,6 +18,9 @@ class SensorSubsystem : Subsystem() {
   val navXMicro: AHRS = AHRS(SerialPort.Port.kUSB)
 
   val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
+  val lineSensorThreshold: Int = 1000
+
+  fun lineSensorActive(): Boolean = (lineSensor.value > lineSensorThreshold)
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
