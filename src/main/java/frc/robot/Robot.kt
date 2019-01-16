@@ -24,8 +24,8 @@ class Robot: TimedRobot() {
     val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
     val m_motionProfiler: MotionProfiler = MotionProfiler()
-    var m_oi: OI? = null
     val m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
+    var m_oi: OI? = null
   }
 
   var m_autonomousCommand: Command? = null
