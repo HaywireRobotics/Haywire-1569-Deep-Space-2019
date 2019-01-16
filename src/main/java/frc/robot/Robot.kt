@@ -112,6 +112,8 @@ class Robot : TimedRobot() {
    * This function is called periodically during operator control
    */
   override fun teleopPeriodic() {
+    println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
+    println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
     Scheduler.getInstance().run()
   }
 
