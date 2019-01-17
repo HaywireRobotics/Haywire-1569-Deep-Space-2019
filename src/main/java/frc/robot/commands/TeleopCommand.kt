@@ -26,6 +26,7 @@ class TeleopCommand : Command() {
   override fun execute() {
     // Drive based on joystick input
     Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
+    Robot.m_hatchPanelSubsystem.HatchArm.set(Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble())
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
     //   println("Start Button!")
     //   EjectHatchPanel().start()
