@@ -17,7 +17,8 @@ import frc.robot.Robot
 class EjectHatchPanel : Command() {
   init {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_exampleSubsystem)
+    requires(Robot.m_hatchPanelSubsystem)
+    
   }
   private val time: Timer = Timer()
 
@@ -28,10 +29,11 @@ class EjectHatchPanel : Command() {
   }
 
   // Called repeatedly when this Command is scheduled to run
-  override fun execute() {
-    when (this.time.get()> (0.5)) {
-      false -> Robot.m_hatchPanelSubsystem.extendpistons()
-      true -> Robot.m_hatchPanelSubsystem.retractpistons()
+  override fun execute () {
+    when (this.time.get() > (0.5)) {  
+      true -> Robot.m_hatchPanelSubsystem.retractPistons()
+      false -> Robot.m_hatchPanelSubsystem.extendPistons()
+    
     }
   }
 

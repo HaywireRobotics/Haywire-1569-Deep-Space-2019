@@ -34,8 +34,8 @@ object RobotMap {
   val hatchMotorPort = 4
 
   // Solenoid ports
-  val hatchpanelport1 = 0
-  val hatchpanelport2 = 1
+  val hatchPanelPort1 = 0
+  val hatchPanelPort2 = 1
 
   // Sensor Ports
   // Analog
