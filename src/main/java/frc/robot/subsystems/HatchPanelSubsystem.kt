@@ -18,7 +18,7 @@ class HatchPanelSubsystem : Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   val HatchArm = Spark(RobotMap.hatchMotorPort)
-  private val HatchPanelSolenoid = DoubleSolenoid(RobotMap.hatchpanelport1, RobotMap.hatchpanelport2)
+  private val HatchPanelSolenoid = DoubleSolenoid(RobotMap.hatchPanelPort1, RobotMap.hatchPanelPort2)
 
   val compressor: Compressor = Compressor()
 
