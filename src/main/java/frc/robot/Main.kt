@@ -17,5 +17,8 @@ class Main {
      * 
      * <p>If you change your main robot class, change the parameter type.
     */
-   fun main(args: Array<String>) = RobotBase.startRobot(::Robot)
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) = RobotBase.startRobot(::Robot)
+    }
 }
