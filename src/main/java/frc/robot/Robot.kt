@@ -20,6 +20,7 @@ import frc.robot.pathfinder.util.MotionProfiler
 class Robot : TimedRobot() {
 
   companion object {
+    val m_intakeSubsystem: IntakeSubsystem = IntakeSubsystem()
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
@@ -113,8 +114,8 @@ class Robot : TimedRobot() {
    * This function is called periodically during operator control
    */
   override fun teleopPeriodic() {
-    println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
-    println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
+    // println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
+    // println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
     Scheduler.getInstance().run()
   }
 

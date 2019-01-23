@@ -13,36 +13,35 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class TeleopCommand : Command() {
+class IntakeCargo: Command() {
   init {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_driveTrainSubsystem)
+    requires(Robot.m_intakeSubsystem)
   }
 
   // Called just before this Command runs the first time
-  override fun initialize() {}
+  override fun initialize () {}
 
   // Called repeatedly when this Command is scheduled to run
-  override fun execute() {
-    // Drive based on joystick input
-    // Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
-    Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi?.rightJoystick?.getY()!!.toDouble(), -1 * Robot.m_oi?.leftJoystick?.getY()!!.toDouble());
-    Robot.m_hatchPanelSubsystem.HatchArm.set(Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble())
-    // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
-    //   println("Start Button!")
-    //   EjectHatchPanel().start()
-    // }
+  override fun execute () {
+    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-.75)
+    Robot.m_intakeSubsystem.RightIntake.setSpeed(.75)
+    println("execute")
   }
 
   // Make this return true when this Command no longer needs to run execute()
-  override fun isFinished(): Boolean {
+  override fun isFinished (): Boolean {
     return false
   }
 
   // Called once after isFinished returns true
-  override fun end() {}
+  override fun end () {}
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  override fun interrupted() {}
+  override fun interrupted () {
+    println("Interrupted")
+    Robot.m_intakeSubsystem.LeftIntake.setSpeed(0.0)
+    Robot.m_intakeSubsystem.RightIntake.setSpeed(0.0)
+  }
 }
