@@ -15,7 +15,7 @@ import frc.robot.RobotMap
  */
 class LiftRobotSubsystem : Subsystem() {
   // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+  // here. Call these from Commands
   private val FrontLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort1, RobotMap.liftRobotPort2)
   private val BackLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort3, RobotMap.liftRobotPort4)
 
