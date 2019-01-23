@@ -25,6 +25,7 @@ class Robot : TimedRobot() {
     val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
     val m_motionProfiler: MotionProfiler = MotionProfiler()
     val m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
+    val m_liftRobotSubsystem: LiftRobotSubsystem = LiftRobotSubsystem()
     var m_oi: OI? = null
   }
 

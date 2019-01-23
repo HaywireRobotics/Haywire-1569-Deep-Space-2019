@@ -37,6 +37,11 @@ object RobotMap {
   val hatchPanelPort1 = 0
   val hatchPanelPort2 = 1
 
+  val liftRobotPort1 = 2
+  val liftRobotPort2 = 3
+  val liftRobotPort3 = 4 
+  val liftRobotPort4 = 5 
+
   // Sensor Ports
   // Analog
   val lineSensorPort = 0

@@ -10,6 +10,7 @@ package frc.robot
 import edu.wpi.first.wpilibj.Joystick
 import edu.wpi.first.wpilibj.buttons.JoystickButton
 import frc.robot.commands.EjectHatchPanel
+import frc.robot.commands.LiftRobot
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,7 +48,9 @@ class OI {
   val rightJoystick: Joystick = Joystick(RobotMap.rightJoystick)
   val manipulatorJoystick: Joystick = Joystick(RobotMap.manipulatorJoystick)
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
+  val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
   init {
     button1.whenPressed(EjectHatchPanel())
+    button2.whenPressed(LiftRobot())
   }
 }
