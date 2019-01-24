@@ -8,12 +8,12 @@
 package frc.robot.commands
 
 import edu.wpi.first.wpilibj.command.InstantCommand
-import frc.robot.Robot
 
+import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-class LiftRobot() : InstantCommand() {
+class DropRobot() : InstantCommand() {
     /**
      * Add your docs here.
      */
@@ -25,7 +25,7 @@ class LiftRobot() : InstantCommand() {
 
     // Called once when the command executes
     override fun initialize() {
-        Robot.m_liftRobotSubsystem.extendFrontPistons()
-        Robot.m_liftRobotSubsystem.extendBackPistons()
+        Robot.m_liftRobotSubsystem.retractFrontPistons()
+        Robot.m_liftRobotSubsystem.retractBackPistons()
     }
 }

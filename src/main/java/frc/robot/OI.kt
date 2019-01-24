@@ -48,8 +48,10 @@ class OI {
   val manipulatorJoystick: Joystick = Joystick(RobotMap.manipulatorJoystick)
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
   val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
+  val button3: JoystickButton = JoystickButton(manipulatorJoystick, 3)
   init {
     button1.whenPressed(EjectHatchPanel())
     button2.whenPressed(LiftRobot())
+    button3.whenPressed(DropRobot())
   }
 }
