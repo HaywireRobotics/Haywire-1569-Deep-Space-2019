@@ -45,12 +45,14 @@ class LiftRobot : Command() {
   // Make this return true when this Command no longer needs to run execute()
 
   override fun isFinished(): Boolean {
-    return this.time.hasPeriodPassed(2.1)
+    return this.time.hasPeriodPassed(4.0)
   }
 
   // Called once after isFinished returns true
   override fun end() {
     println("Hatch Released!")
+    Robot.m_liftRobotSubsystem.stopBackPistons()
+    Robot.m_liftRobotSubsystem.stopFrontPistons()
   }
 
   // Called when another command which requires one or more of the same
