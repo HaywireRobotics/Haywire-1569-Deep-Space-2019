@@ -49,9 +49,13 @@ class OI {
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
   val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
   val button3: JoystickButton = JoystickButton(manipulatorJoystick, 3)
+  val button4: JoystickButton = JoystickButton(manipulatorJoystick, 4)
+  val button5: JoystickButton = JoystickButton(manipulatorJoystick, 5)
   init {
     button1.whenPressed(EjectHatchPanel())
-    button2.whenPressed(LiftRobot())
-    button3.whenPressed(DropRobot())
+    button2.whileHeld(IntakeCargo())
+    button3.whileHeld(ExtrudeCargo())
+    button4.whenPressed(LiftRobot())
+    button5.whenPressed(DropRobot())
   }
 }
