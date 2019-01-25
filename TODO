@@ -1,1 +1,11 @@
 ✔ Reimplement ball motor mappings @done(19-01-24 15:04)
+
+Sensing:
+    Line sensing:
+        ☐ Wire up color sensors
+        ☐ Program moving drive train based on color sensor input
+    Camera sensing:
+        ☐ Find optimal resolution for sandstorm streaming
+        ☐ Generate GRIP pipelines
+        ☐ Run GRIP code on coprocessor or driver station
+        ☐ Generate path based on camera data
