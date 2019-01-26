@@ -19,6 +19,7 @@ class IntakeSubsystem: Subsystem() {
   val LeftIntake = Spark(RobotMap.leftIntakePort)
   val RightIntake = Spark(RobotMap.rightIntakePort)
 
+  val IntakeHinge = Spark(RobotMap.IntakeLiftMotor)
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
