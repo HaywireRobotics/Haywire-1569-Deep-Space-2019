@@ -28,6 +28,9 @@ class Robot : TimedRobot() {
     val m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
     val m_liftRobotSubsystem: LiftRobotSubsystem = LiftRobotSubsystem()
     var m_oi: OI? = null
+
+    val robotType: String = "Practice"
+    var robotDirectionInverted: Boolean = false
   }
 
   var m_autonomousCommand: Command? = null
