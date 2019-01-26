@@ -46,6 +46,9 @@ object RobotMap {
   val liftRobotPort2 = 3
   val liftRobotPort3 = 4 
   val liftRobotPort4 = 5 
+  
+  val intakePort1 = 6
+  val intakePort2 = 7
 
   // Sensor Ports
   // Analog

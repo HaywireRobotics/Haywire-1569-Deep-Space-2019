@@ -30,7 +30,7 @@ class EjectHatchPanel : Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    when (this.time.get() > (0.5)) {  
+    when (this.time.get() > (1.0)) {  
       true -> Robot.m_hatchPanelSubsystem.retractPistons()
       false -> Robot.m_hatchPanelSubsystem.extendPistons()
     
@@ -40,7 +40,7 @@ class EjectHatchPanel : Command() {
   // Make this return true when this Command no longer needs to run execute()
 
   override fun isFinished(): Boolean {
-    return this.time.hasPeriodPassed(0.6)
+    return this.time.hasPeriodPassed(1.1)
   }
 
   // Called once after isFinished returns true

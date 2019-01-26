@@ -8,6 +8,7 @@
 package frc.robot.subsystems
 import frc.robot.RobotMap
 import edu.wpi.first.wpilibj.Spark
+import edu.wpi.first.wpilibj.DoubleSolenoid
 import edu.wpi.first.wpilibj.command.Subsystem
       
 /**
@@ -20,10 +21,16 @@ class IntakeSubsystem: Subsystem() {
   val RightIntake = Spark(RobotMap.rightIntakePort)
 
   val IntakeHinge = Spark(RobotMap.IntakeLiftMotor)
+
+  val piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     
   }
+
+  fun expandPiston() = piston.set(DoubleSolenoid.Value.kForward)
+
+  fun contractPiston() = piston.set(DoubleSolenoid.Value.kReverse)
 }

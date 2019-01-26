@@ -27,8 +27,8 @@ class TeleopCommand : Command() {
     // Drive based on joystick input
     // Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
     Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi?.rightJoystick?.getY()!!.toDouble(), -1 * Robot.m_oi?.leftJoystick?.getY()!!.toDouble());
-    Robot.m_hatchPanelSubsystem.HatchArm.set(Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble())
-    Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.IntakeJoystick?.getY()!!.toDouble())
+    Robot.m_hatchPanelSubsystem.HatchArm.set(-1 * (Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble()/2))
+    Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.IntakeJoystick?.getY()!!.toDouble()/2)
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
     //   println("Start Button!")
     //   EjectHatchPanel().start()
