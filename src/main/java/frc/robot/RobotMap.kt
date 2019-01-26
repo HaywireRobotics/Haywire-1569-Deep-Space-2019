@@ -62,8 +62,8 @@ object RobotMap {
   val rightEncoderPort2 = 9
 
   // Joystick ports
-  val leftJoystick = 0
-  val rightJoystick = 1
+  val leftJoystick = 1
+  val rightJoystick = 0
   val manipulatorJoystick = 2
   val IntakeJoystick = 3
 

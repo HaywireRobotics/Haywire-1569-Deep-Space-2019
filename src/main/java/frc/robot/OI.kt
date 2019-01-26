@@ -55,6 +55,8 @@ class OI {
 
   val manipulate2button1: JoystickButton = JoystickButton(IntakeJoystick, 1)
   val manipulate3button2: JoystickButton = JoystickButton(IntakeJoystick, 2)
+
+  val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9);
   init {
     button1.whenPressed(EjectHatchPanel())
     button2.whileHeld(IntakeCargo())
@@ -64,5 +66,7 @@ class OI {
 
     manipulate2button1.whenPressed(ExpandCargoIntake())
     manipulate3button2.whenPressed(ContractCargoIntake())
+
+    rightJoystickButton9.whenPressed(SwitchDriveDirection())
   }
 }
