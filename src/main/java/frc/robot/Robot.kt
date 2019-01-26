@@ -21,6 +21,7 @@ class Robot : TimedRobot() {
 
   companion object {
     val m_intakeSubsystem: IntakeSubsystem = IntakeSubsystem()
+    val m_intakeLiftSubsystem: IntakeLift = IntakeLift()
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()

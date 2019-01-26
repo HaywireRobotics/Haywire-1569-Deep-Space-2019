@@ -28,10 +28,11 @@ class TeleopCommand : Command() {
     // Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
     Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi?.rightJoystick?.getY()!!.toDouble(), -1 * Robot.m_oi?.leftJoystick?.getY()!!.toDouble());
     Robot.m_hatchPanelSubsystem.HatchArm.set(Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble())
+    Robot.m_intakeLiftSubsystem.LiftIntake.set(Robot.m_oi?.IntakeJoystick?.getY()!!.toDouble())
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
     //   println("Start Button!")
     //   EjectHatchPanel().start()
-    // }
+    // }j
   }
 
   // Make this return true when this Command no longer needs to run execute()

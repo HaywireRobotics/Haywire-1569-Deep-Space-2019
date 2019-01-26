@@ -37,6 +37,7 @@ object RobotMap {
 
   val leftIntakePort = 5
   val rightIntakePort = 6
+  val IntakeLiftMotor = 7
   // Solenoid ports
   val hatchPanelPort1 = 0
   val hatchPanelPort2 = 1
@@ -61,6 +62,7 @@ object RobotMap {
   val leftJoystick = 0
   val rightJoystick = 1
   val manipulatorJoystick = 2
+  val IntakeJoystick = 3
 
   // Button Mappings
   val ejectorButton = 1
