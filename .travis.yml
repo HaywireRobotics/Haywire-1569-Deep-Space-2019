@@ -1,0 +1,7 @@
+language: kotlin
+
+dist: xenial
+
+script:
+ - ./gradlew build
+ - ./gradlew test
