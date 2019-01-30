@@ -22,7 +22,7 @@ class IntakeSubsystem: Subsystem() {
 
   val IntakeHinge = Spark(RobotMap.IntakeLiftMotor)
 
-  val piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
+  var piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.

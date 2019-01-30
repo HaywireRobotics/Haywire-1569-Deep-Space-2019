@@ -14,7 +14,7 @@ import frc.robot.Robot
 /**
  * Add your docs here.
  */
-class ContractCargoIntake() : InstantCommand() {
+open class ContractCargoIntake() : InstantCommand() {
     /**
      * Add your docs here.
      */
@@ -25,7 +25,7 @@ class ContractCargoIntake() : InstantCommand() {
     }
 
     // Called once when the command executes
-    override fun initialize() {
+    public override fun initialize() {
         Robot.m_intakeSubsystem.contractPiston()
     }
 }

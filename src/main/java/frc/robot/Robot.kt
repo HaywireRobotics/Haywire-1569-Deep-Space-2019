@@ -20,12 +20,12 @@ import frc.robot.pathfinder.util.MotionProfiler
 class Robot : TimedRobot() {
 
   companion object {
-    val m_intakeSubsystem: IntakeSubsystem = IntakeSubsystem()
-    val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
-    val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
-    val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
-    val m_motionProfiler: MotionProfiler = MotionProfiler()
-    val m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
+    var m_intakeSubsystem: IntakeSubsystem = IntakeSubsystem()
+    var m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
+    var m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
+    var m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
+    var m_motionProfiler: MotionProfiler = MotionProfiler()
+    var m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
     val m_liftRobotSubsystem: LiftRobotSubsystem = LiftRobotSubsystem()
     var m_oi: OI? = null
 
