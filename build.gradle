@@ -51,7 +51,8 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
