@@ -1,10 +1,10 @@
-language: kotlin
-sudo: true
+language: minimal
+
 dist: xenial
 
-install:
-- chmod +x gradlew
+install: docker-compose -f infrastructure/travis/docker-compose.yml build
 
-script:
-- ./gradlew build
-- ./gradlew test
+script: docker-compose -f infrastructure/travis/docker-compose.yml up
+
+services:
+  - docker

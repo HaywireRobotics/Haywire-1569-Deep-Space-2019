@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  robot:
+    build:
+      context: ../../
+      dockerfile: infrastructure/travis/Dockerfile
