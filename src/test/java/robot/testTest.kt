@@ -5,18 +5,18 @@ import org.junit.Test;
 import org.junit.Before;
 
 
-open class MyClass {
+class MyClass {
     var lastFunc: String
 
     init {
         lastFunc = "null"
     }
 
-    open fun doAThing() {
+    fun doAThing() {
         this.lastFunc = "Do a thing"
     }
 
-    open fun doADifferentThing() {
+    fun doADifferentThing() {
         this.lastFunc = "Did a different thing"
     }
 }
