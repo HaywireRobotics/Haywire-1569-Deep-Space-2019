@@ -1,7 +1,10 @@
 language: kotlin
-
+sudo: true
 dist: xenial
 
+install:
+- chmod +x gradlew
+
 script:
- - ./gradlew build
- - ./gradlew test
+- ./gradlew build
+- ./gradlew test
