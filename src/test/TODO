@@ -9,7 +9,7 @@ Tests:
         Tests to run:
             ✔ Forward not inverted @done(19-01-30 19:25)
             ✔ Forward inverted @done(19-01-30 19:47)
-            ☐ Backward not inverted
+            ✔ Backward not inverted @done(19-01-30 19:51)
             ☐ Backward inverted
             ☐ Moving hatchpanel stick up
             ☐ Moving hatchpanel stick down
