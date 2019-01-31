@@ -1,5 +1,5 @@
 Tests:
-    ☐ Add TeleopCommandTest
+    ✔ Add TeleopCommandTest @done(19-01-30 20:13)
         Mockito:
             ✔ Mock oi @done(19-01-30 17:22)
             ✔ Mock drivetrain subsystem @done(19-01-30 17:23)
