@@ -85,7 +85,13 @@ class TeleopCommandTest {
     }
 
     @Test
-    fun hatch_stick_down() {}
+    fun hatch_stick_down() {
+        setJoystickReturnValues(0.0, 0.0, -0.84, 0.0)
+
+        command.execute()
+
+        verify(Robot.m_hatchPanelSubsystem).setHatchArm(0.42)
+    }
 
     @Test
     fun intake_stick_up() {}
