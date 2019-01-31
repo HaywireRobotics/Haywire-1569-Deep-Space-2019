@@ -64,7 +64,16 @@ class TeleopCommandTest {
     }
 
     @Test
-    fun drive_backward_invert() {}
+    fun drive_backward_invert() {
+        Robot.robotDirectionInverted = true
+        setJoystickReturnValues(-0.76, -0.94, 0.0, 0.0)
+
+        command.execute()
+
+        verify(Robot.m_driveTrainSubsystem).tankDrive(-0.94, -0.76)
+
+        Robot.robotDirectionInverted = false
+    }
 
     @Test
     fun hatch_stick_up() {}
