@@ -11,7 +11,7 @@ Tests:
             ✔ Forward inverted @done(19-01-30 19:47)
             ✔ Backward not inverted @done(19-01-30 19:51)
             ✔ Backward inverted @done(19-01-30 19:56)
-            ☐ Moving hatchpanel stick up
+            ✔ Moving hatchpanel stick up @done(19-01-30 20:03)
             ☐ Moving hatchpanel stick down
             ☐ Moving intake stick up
             ☐ Moving intake stick down
