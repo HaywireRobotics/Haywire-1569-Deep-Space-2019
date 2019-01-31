@@ -103,7 +103,13 @@ class TeleopCommandTest {
     }
 
     @Test
-    fun intake_stick_down() {}
+    fun intake_stick_down() {
+        setJoystickReturnValues(0.0, 0.0, 0.0, -0.98)
+
+        command.execute()
+
+        verify(Robot.m_intakeSubsystem).setIntakeHinge(-0.49)
+    }
 
     fun setJoystickReturnValues(leftValue: Double, rightValue: Double, manipValue: Double, intakeValue: Double) {
         whenever(leftJoy.getY()).thenReturn(leftValue)
