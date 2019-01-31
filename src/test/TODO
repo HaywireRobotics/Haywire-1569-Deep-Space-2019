@@ -7,7 +7,7 @@ Tests:
             ✔ Mock hatchpanel subsystem @done(19-01-30 17:23)
             ✔ Mock intake subsystem @done(19-01-30 17:23)
         Tests to run:
-            ☐ Forward not inverted
+            ✔ Forward not inverted @done(19-01-30 19:25)
             ☐ Forward inverted
             ☐ Backward not inverted
             ☐ Backward inverted
