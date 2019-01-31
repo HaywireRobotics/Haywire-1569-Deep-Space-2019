@@ -43,18 +43,18 @@ class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(ExampleCommand())
-  val leftJoystick: Joystick = Joystick(RobotMap.leftJoystick)
-  val rightJoystick: Joystick = Joystick(RobotMap.rightJoystick)
-  val IntakeJoystick: Joystick = Joystick(RobotMap.IntakeJoystick)
-  val manipulatorJoystick: Joystick = Joystick(RobotMap.manipulatorJoystick)
+  var leftJoystick: Joystick = Joystick(RobotMap.leftJoystick)
+  var rightJoystick: Joystick = Joystick(RobotMap.rightJoystick)
+  var intakeJoystick: Joystick = Joystick(RobotMap.intakeJoystick)
+  var manipulatorJoystick: Joystick = Joystick(RobotMap.manipulatorJoystick)
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
   val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
   val button3: JoystickButton = JoystickButton(manipulatorJoystick, 3)
   val button4: JoystickButton = JoystickButton(manipulatorJoystick, 4)
   val button5: JoystickButton = JoystickButton(manipulatorJoystick, 5)
 
-  val manipulate2button1: JoystickButton = JoystickButton(IntakeJoystick, 1)
-  val manipulate3button2: JoystickButton = JoystickButton(IntakeJoystick, 2)
+  val manipulate2button1: JoystickButton = JoystickButton(intakeJoystick, 1)
+  val manipulate3button2: JoystickButton = JoystickButton(intakeJoystick, 2)
 
   val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9);
   init {

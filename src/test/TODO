@@ -1,11 +1,11 @@
 Tests:
     ☐ Add TeleopCommandTest
         Mockito:
-            ☐ Mock oi
-            ☐ Mock drivetrain subsystem
-            ☐ Mock Joysticks
-            ☐ Mock hatchpanel subsystem
-            ☐ Mock intake subsystem
+            ✔ Mock oi @done(19-01-30 17:22)
+            ✔ Mock drivetrain subsystem @done(19-01-30 17:23)
+            ✔ Mock Joysticks @done(19-01-30 17:30)
+            ✔ Mock hatchpanel subsystem @done(19-01-30 17:23)
+            ✔ Mock intake subsystem @done(19-01-30 17:23)
         Tests to run:
             ☐ Forward not inverted
             ☐ Forward inverted

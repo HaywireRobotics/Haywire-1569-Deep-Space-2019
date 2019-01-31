@@ -17,8 +17,8 @@ import frc.robot.RobotMap
 class HatchPanelSubsystem : Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  val HatchArm = Spark(RobotMap.hatchMotorPort)
-  private val HatchPanelSolenoid = DoubleSolenoid(RobotMap.hatchPanelPort1, RobotMap.hatchPanelPort2)
+  val hatchArm = Spark(RobotMap.hatchMotorPort)
+  private val hatchPanelSolenoid = DoubleSolenoid(RobotMap.hatchPanelPort1, RobotMap.hatchPanelPort2)
 
   val compressor: Compressor = Compressor()
 
@@ -26,9 +26,9 @@ class HatchPanelSubsystem : Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  fun extendPistons  () = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kForward)
-  fun retractPistons () = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kReverse)
+  fun extendPistons  () = this.hatchPanelSolenoid.set(DoubleSolenoid.Value.kForward)
+  fun retractPistons () = this.hatchPanelSolenoid.set(DoubleSolenoid.Value.kReverse)
   
-  fun stopPistons() = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kOff)
+  fun stopPistons() = this.hatchPanelSolenoid.set(DoubleSolenoid.Value.kOff)
   
 }
