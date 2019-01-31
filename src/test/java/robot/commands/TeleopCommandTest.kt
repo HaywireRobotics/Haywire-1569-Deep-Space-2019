@@ -35,10 +35,7 @@ class TeleopCommandTest {
 
     @Test
     fun drive_forward_no_invert() {
-        whenever(leftJoy.getY()).thenReturn(0.8)
-        whenever(rightJoy.getY()).thenReturn(1.0)
-        whenever(manipJoy.getY()).thenReturn(0.0)
-        whenever(intakeJoy.getY()).thenReturn(0.0)
+        setJoystickReturnValues(0.8, 1.0, 0.0, 0.0)
 
         command.execute()
 
@@ -65,4 +62,11 @@ class TeleopCommandTest {
 
     @Test
     fun intake_stick_down() {}
+
+    fun setJoystickReturnValues(leftValue: Double, rightValue: Double, manipValue: Double, intakeValue: Double) {
+        whenever(leftJoy.getY()).thenReturn(leftValue)
+        whenever(rightJoy.getY()).thenReturn(rightValue)
+        whenever(manipJoy.getY()).thenReturn(manipValue)
+        whenever(intakeJoy.getY()).thenReturn(intakeValue)
+    }
 }
