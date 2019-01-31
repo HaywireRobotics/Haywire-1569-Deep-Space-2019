@@ -25,10 +25,6 @@ class TeleopCommandTest {
         Robot.m_driveTrainSubsystem = mock()
         Robot.m_hatchPanelSubsystem = mock()
         Robot.m_intakeSubsystem = mock()
-        // Robot.m_oi.rightJoystick = mock()
-        // Robot.m_oi.leftJoystick = mock()
-        // Robot.m_oi.manipulatorJoystick = mock()
-        // Robot.m_oi.intakeJoystick = mock()
 
         // Mapping mocked joysticks to oi
         whenever(Robot.m_oi.getLJoystick()).thenReturn(leftJoy)

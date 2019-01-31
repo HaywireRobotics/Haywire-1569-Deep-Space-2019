@@ -33,4 +33,6 @@ class IntakeSubsystem: Subsystem() {
   fun expandPiston() = piston.set(DoubleSolenoid.Value.kForward)
 
   fun contractPiston() = piston.set(DoubleSolenoid.Value.kReverse)
+
+  fun setIntakeHinge(speed: Double) = this.intakeHinge.set(speed)
 }

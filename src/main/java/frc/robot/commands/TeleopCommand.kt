@@ -32,8 +32,8 @@ class TeleopCommand : Command() {
     else {
       Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi.getLJoystick().getY().toDouble(), -1 * Robot.m_oi.getRJoystick().getY().toDouble());
     }
-    // Robot.m_hatchPanelSubsystem.hatchArm.set(-1 * (Robot.m_oi.getMJoystick().getY().toDouble()/2))
-    // Robot.m_intakeSubsystem.intakeHinge.set(Robot.m_oi.getIJoystick().getY().toDouble()/2)
+    Robot.m_hatchPanelSubsystem.setHatchArm(-1 * (Robot.m_oi.getMJoystick().getY().toDouble()/2))
+    Robot.m_intakeSubsystem.setIntakeHinge(Robot.m_oi.getIJoystick().getY().toDouble()/2)
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
     //   println("Start Button!")
     //   EjectHatchPanel().start()
