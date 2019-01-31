@@ -23,7 +23,7 @@ class TeleopCommand : Command() {
   override fun initialize() {}
 
   // Called repeatedly when this Command is scheduled to run
-  override fun execute() {
+  public override fun execute() {
     // Drive based on joystick input
     // Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
     if (Robot.robotDirectionInverted) {
