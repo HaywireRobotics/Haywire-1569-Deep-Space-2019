@@ -14,7 +14,7 @@ import frc.robot.Robot
 /**
  * Add your docs here.
  */
-open class ContractCargoIntake() : InstantCommand() {
+class ContractCargoIntake() : InstantCommand() {
     /**
      * Add your docs here.
      */

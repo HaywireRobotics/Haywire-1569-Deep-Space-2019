@@ -1,6 +1,7 @@
-Test:
+Tests:
     ☐ Add TeleopCommandTest
         ☐ Mock oi
         ☐ Mock drivetrain subsystem
         ☐ Mock Joysticks
-        
+        ☐ Mock hatchpanel subsystem
+        ☐ Mock intake subsystem
