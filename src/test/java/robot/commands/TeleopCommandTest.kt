@@ -13,23 +13,41 @@ import frc.robot.subsystems.IntakeSubsystem
 
 class TeleopCommandTest {
     val command: TeleopCommand = TeleopCommand()
+    val leftJoy: Joystick = mock()
+    val rightJoy: Joystick = mock()
+    val manipJoy: Joystick = mock()
+    val intakeJoy: Joystick = mock()
 
     @Before
     fun setup() {
         // Mocking required classes
-        Robot.m_oi = mock()
+        Robot.m_oi = mock<OI>()
         Robot.m_driveTrainSubsystem = mock()
         Robot.m_hatchPanelSubsystem = mock()
         Robot.m_intakeSubsystem = mock()
-        Robot.m_oi.rightJoystick = mock()
-        Robot.m_oi.leftJoystick = mock()
-        Robot.m_oi.manipulatorJoystick = mock()
-        Robot.m_oi.intakeJoystick = mock()
-        
+        // Robot.m_oi.rightJoystick = mock()
+        // Robot.m_oi.leftJoystick = mock()
+        // Robot.m_oi.manipulatorJoystick = mock()
+        // Robot.m_oi.intakeJoystick = mock()
+
+        // Mapping mocked joysticks to oi
+        whenever(Robot.m_oi.getLJoystick()).thenReturn(leftJoy)
+        whenever(Robot.m_oi.getRJoystick()).thenReturn(rightJoy)
+        whenever(Robot.m_oi.getMJoystick()).thenReturn(manipJoy)
+        whenever(Robot.m_oi.getIJoystick()).thenReturn(intakeJoy)
     }
 
     @Test
-    fun drive_forward_no_invert() {}
+    fun drive_forward_no_invert() {
+        whenever(leftJoy.getY()).thenReturn(0.8)
+        whenever(rightJoy.getY()).thenReturn(1.0)
+        whenever(manipJoy.getY()).thenReturn(0.0)
+        whenever(intakeJoy.getY()).thenReturn(0.0)
+
+        command.execute()
+
+        verify(Robot.m_driveTrainSubsystem).tankDrive(-0.8, -1.0)
+    }
 
     @Test
     fun drive_forward_invert() {}

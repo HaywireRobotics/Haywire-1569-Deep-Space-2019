@@ -28,7 +28,7 @@ class DriveTrainSubsystem : Subsystem() {
   private val driveleftgroup = SpeedControllerGroup(leftFront, leftRear)
   private val driverightgroup = SpeedControllerGroup(rightFront, rightRear)
 
-  private val myRobot = DifferentialDrive(driveleftgroup, driverightgroup)
+  var myRobot = DifferentialDrive(driveleftgroup, driverightgroup)
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 

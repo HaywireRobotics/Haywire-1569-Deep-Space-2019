@@ -69,4 +69,12 @@ class OI {
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
   }
+
+  fun getRJoystick() = rightJoystick
+
+  fun getLJoystick() = leftJoystick
+
+  fun getMJoystick() = manipulatorJoystick
+
+  fun getIJoystick() = intakeJoystick
 }
