@@ -27,7 +27,7 @@ class Robot : TimedRobot() {
     var m_motionProfiler: MotionProfiler = MotionProfiler()
     var m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
     val m_liftRobotSubsystem: LiftRobotSubsystem = LiftRobotSubsystem()
-    var m_oi: OI = OI()
+    lateinit var m_oi: OI
 
     val robotType: String = "Practice"
     var robotDirectionInverted: Boolean = false
@@ -41,6 +41,7 @@ class Robot : TimedRobot() {
    * used for any initialization code.
    */
   override fun robotInit() {
+    m_oi = OI()
     m_chooser.setDefaultOption("Default Auto", ExampleCommand())
     // m_chooser.addOption("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", m_chooser)
