@@ -1,8 +1,8 @@
 package frc.robot
 
 import com.nhaarman.mockitokotlin2.*
-import org.junit.Test;
-import org.junit.Before;
+import org.junit.Test
+import org.junit.Before
 
 
 class MyClass {
