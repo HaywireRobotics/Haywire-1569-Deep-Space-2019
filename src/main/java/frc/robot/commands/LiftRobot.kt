@@ -25,7 +25,7 @@ class LiftRobot() : InstantCommand() {
 
     // Called once when the command executes
     override fun initialize() {
-        Robot.m_liftRobotSubsystem.extendFrontPistons()
         Robot.m_liftRobotSubsystem.extendBackPistons()
+        Robot.m_liftRobotSubsystem.extendFrontPistons()
     }
 }

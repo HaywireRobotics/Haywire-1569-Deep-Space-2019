@@ -29,7 +29,7 @@ class WrapStringInverted: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    when (this.time.get() > (0.5)) {  
+    when (this.time.get() > (1.0)) {  
       true -> Robot.m_liftRobotSubsystem.stringMotor.set(0.0)
       false -> Robot.m_liftRobotSubsystem.stringMotor.set(-0.25)
     
