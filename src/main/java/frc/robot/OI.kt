@@ -54,7 +54,7 @@ class OI {
   val button5: JoystickButton = JoystickButton(manipulatorJoystick, 5)
 
   val manipulate2button1: JoystickButton = JoystickButton(IntakeJoystick, 1)
-  val manipulate3button2: JoystickButton = JoystickButton(IntakeJoystick, 2)
+  val manipulate2button2: JoystickButton = JoystickButton(IntakeJoystick, 2)
 
   val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9);
   init {
@@ -65,7 +65,7 @@ class OI {
     button5.whenPressed(DropRobot())
 
     manipulate2button1.whenPressed(ExpandCargoIntake())
-    manipulate3button2.whenPressed(ContractCargoIntake())
+    manipulate2button2.whenPressed(ContractCargoIntake())
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
   }
