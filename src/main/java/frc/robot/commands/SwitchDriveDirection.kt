@@ -23,7 +23,7 @@ class SwitchDriveDirection() : InstantCommand() {
     }
 
     // Called once when the command executes
-    override fun initialize() {
+    public override fun initialize() {
         println("Switching Direction")
         if (Robot.robotDirectionInverted) {
             Robot.robotDirectionInverted = false;
