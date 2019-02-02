@@ -24,5 +24,5 @@ class ExpandCargoIntake() : InstantCommand() {
     }
 
     // Called once when the command executes
-    override fun initialize() = Robot.m_intakeSubsystem.expandPiston()
+    public override fun initialize() = Robot.m_intakeSubsystem.expandPiston()
 }
