@@ -8,6 +8,7 @@
 package frc.robot.subsystems
 import edu.wpi.first.wpilibj.DoubleSolenoid
 import edu.wpi.first.wpilibj.Compressor
+import edu.wpi.first.wpilibj.PWMVictorSPX
 import edu.wpi.first.wpilibj.command.Subsystem
 import frc.robot.RobotMap
 /**
@@ -18,6 +19,8 @@ class LiftRobotSubsystem : Subsystem() {
   // here. Call these from Commands
   private val FrontLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort1, RobotMap.liftRobotPort2)
   private val BackLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort3, RobotMap.liftRobotPort4)
+
+  var stringMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.stringMotorPort)
 
   //val compressor: Compressor = Compressor()
 
