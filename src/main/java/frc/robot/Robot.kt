@@ -45,6 +45,8 @@ class Robot : TimedRobot() {
     m_chooser.setDefaultOption("Default Auto", ExampleCommand())
     // m_chooser.addOption("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", m_chooser)
+    m_liftRobotSubsystem.retractBackPistons()
+    m_liftRobotSubsystem.retractFrontPistons()
   }
 
   /**
@@ -66,7 +68,9 @@ class Robot : TimedRobot() {
    * You can use it to reset any subsystem information you want to clear when
    * the robot is disabled.
    */
-  override fun disabledInit() {}
+  override fun disabledInit() {
+    DropRobot().start()
+  }
 
   override fun disabledPeriodic() {
     Scheduler.getInstance().run()
