@@ -45,7 +45,7 @@ class OI {
   // button.whenReleased(ExampleCommand())
   val leftJoystick: Joystick = Joystick(RobotMap.leftJoystick)
   val rightJoystick: Joystick = Joystick(RobotMap.rightJoystick)
-  val IntakeJoystick: Joystick = Joystick(RobotMap.IntakeJoystick)
+  val intakeJoystick: Joystick = Joystick(RobotMap.intakeJoystick)
   val manipulatorJoystick: Joystick = Joystick(RobotMap.manipulatorJoystick)
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
   val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
@@ -53,10 +53,10 @@ class OI {
   val button4: JoystickButton = JoystickButton(manipulatorJoystick, 4)
   val button5: JoystickButton = JoystickButton(manipulatorJoystick, 5)
 
-  val manipulate2button1: JoystickButton = JoystickButton(IntakeJoystick, 1)
-  val manipulate2button2: JoystickButton = JoystickButton(IntakeJoystick, 2)
-  val manipulate2button4: JoystickButton = JoystickButton(IntakeJoystick, 4)
-  val manipulate2button5: JoystickButton = JoystickButton(IntakeJoystick, 5)
+  val manipulate2button1: JoystickButton = JoystickButton(intakeJoystick, 1)
+  val manipulate2button2: JoystickButton = JoystickButton(intakeJoystick, 2)
+  val manipulate2button4: JoystickButton = JoystickButton(intakeJoystick, 4)
+  val manipulate2button5: JoystickButton = JoystickButton(intakeJoystick, 5)
 
   val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9);
   init {

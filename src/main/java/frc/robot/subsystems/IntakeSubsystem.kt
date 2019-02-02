@@ -20,7 +20,7 @@ class IntakeSubsystem: Subsystem() {
   val LeftIntake = Spark(RobotMap.leftIntakePort)
   val RightIntake = Spark(RobotMap.rightIntakePort)
 
-  val IntakeHinge = Spark(RobotMap.IntakeLiftMotor)
+  val IntakeHinge = Spark(RobotMap.intakeLiftMotor)
 
   val piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
       
