@@ -9,3 +9,7 @@ Sensing:
         ☐ Generate GRIP pipelines
         ☐ Run GRIP code on coprocessor or driver station
         ☐ Generate path based on camera data
+
+Other:
+    Init:
+        ☐ Make pistons retract on robotInit and disableInit/periodic
