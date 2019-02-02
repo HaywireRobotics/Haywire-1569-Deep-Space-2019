@@ -50,8 +50,10 @@ class OI {
   val button1: JoystickButton = JoystickButton(manipulatorJoystick, 1)
   val button2: JoystickButton = JoystickButton(manipulatorJoystick, 2)
   val button3: JoystickButton = JoystickButton(manipulatorJoystick, 3)
-  val button4: JoystickButton = JoystickButton(manipulatorJoystick, 4)
-  val button5: JoystickButton = JoystickButton(manipulatorJoystick, 5)
+  val button6: JoystickButton = JoystickButton(manipulatorJoystick, 6)
+  val button7: JoystickButton = JoystickButton(manipulatorJoystick, 7)
+  val button10: JoystickButton = JoystickButton(manipulatorJoystick, 10)
+  val button11: JoystickButton = JoystickButton(manipulatorJoystick, 11)
 
   val manipulate2button1: JoystickButton = JoystickButton(intakeJoystick, 1)
   val manipulate2button2: JoystickButton = JoystickButton(intakeJoystick, 2)
@@ -63,8 +65,12 @@ class OI {
     button1.whenPressed(EjectHatchPanel())
     button2.whileHeld(IntakeCargo())
     button3.whileHeld(ExtrudeCargo())
-    button4.whenPressed(LiftRobot())
-    button5.whenPressed(DropRobot())
+
+    button6.whenPressed(LiftRobot())
+    button7.whenPressed(DropRobot())
+
+    button10.whenPressed(RetractBack())
+    button11.whenPressed(RetractFront())
 
     manipulate2button1.whenPressed(ExpandCargoIntake())
     manipulate2button2.whenPressed(ContractCargoIntake())
