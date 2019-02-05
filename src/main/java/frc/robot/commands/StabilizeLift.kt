@@ -13,7 +13,7 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class StablizeLift: Command() {
+class StabilizeLift: Command() {
   var theYaw = 0.0f;
   init {
     // Use requires() here to declare subsystem dependencies
