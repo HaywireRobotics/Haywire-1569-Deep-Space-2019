@@ -58,9 +58,6 @@ class Robot : TimedRobot() {
    * LiveWindow and SmartDashboard integrated updating.
    */
   override fun robotPeriodic() {
-    println("Navx Roll: " + m_sensorSubsystem.navXMicro.roll);
-    println("Navx Yaw: " + m_sensorSubsystem.navXMicro.yaw);
-    println("Navx Pitch" + m_sensorSubsystem.navXMicro.pitch)
     // println("Value: " + m_sensorSubsystem.lineSensor.value.toString()) 
     // println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString()) 2(3/4") 2(2 1/4")
     // println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString()) 2'3" 8'1/4"
