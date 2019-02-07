@@ -129,5 +129,8 @@ class Robot : TimedRobot() {
   /**
    * This function is called periodically during test mode
    */
-  override fun testPeriodic() {}
+  override fun testPeriodic() {
+    println("X: " + m_sensorSubsystem.gyro.x)
+    println("Y: " + m_sensorSubsystem.gyro.y)
+  }
 }
