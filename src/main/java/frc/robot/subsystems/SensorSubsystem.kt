@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.CameraServer
 import edu.wpi.first.wpilibj.SerialPort
 import edu.wpi.first.wpilibj.AnalogInput
 import com.kauailabs.navx.frc.AHRS
+import edu.wpi.first.wpilibj.ADXL345_SPI
+import edu.wpi.first.wpilibj.SPI.Port
+import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range
 
 import frc.robot.RobotMap
 
@@ -21,6 +24,8 @@ class SensorSubsystem : Subsystem() {
 
   val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
   val lineSensorThreshold: Int = 1000
+
+  val gyro: ADXL345_SPI = ADXL345_SPI(Port.kOnboardCS0, Range.k2G)
 
   // private val wideAngleCamera: UsbCamera
 
