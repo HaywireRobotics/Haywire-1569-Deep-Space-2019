@@ -6,8 +6,10 @@ import edu.wpi.first.wpilibj.Encoder
 import edu.wpi.first.wpilibj.CameraServer
 import edu.wpi.first.wpilibj.SerialPort
 import edu.wpi.first.wpilibj.AnalogInput
+import edu.wpi.first.wpilibj.I2C
 import com.kauailabs.navx.frc.AHRS
 import edu.wpi.first.wpilibj.ADXL345_SPI
+import edu.wpi.first.wpilibj.ADXRS450_Gyro
 import edu.wpi.first.wpilibj.SPI.Port
 import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range
 
@@ -20,12 +22,13 @@ class SensorSubsystem : Subsystem() {
   val leftEncoder: Encoder = Encoder(RobotMap.leftEncoderPort1, RobotMap.leftEncoderPort2)
   val rightEncoder: Encoder = Encoder(RobotMap.rightEncoderPort1, RobotMap.rightEncoderPort2)
 
-  val navXMicro: AHRS = AHRS(SerialPort.Port.kUSB)
+  val navXMicro: AHRS = AHRS(I2C.Port.kOnboard)
 
   val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
   val lineSensorThreshold: Int = 1000
 
-  val gyro: ADXL345_SPI = ADXL345_SPI(Port.kOnboardCS0, Range.k2G)
+  // val gyro: ADXL345_SPI = ADXL345_SPI(Port.kOnboardCS0, Range.k8G)
+  val gyro: ADXRS450_Gyro = ADXRS450_Gyro(Port.kOnboardCS0)
 
   // private val wideAngleCamera: UsbCamera
 
