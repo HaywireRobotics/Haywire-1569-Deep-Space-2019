@@ -80,7 +80,7 @@ class OI {
     manipulate2button4.whenPressed(WrapString())
     manipulate2button5.whenPressed(WrapStringInverted())
 
-    manipulate2button6.whileHeld(StabilizeLift())
+    manipulate2button6.whenPressed(StabilizeLift())
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
   }

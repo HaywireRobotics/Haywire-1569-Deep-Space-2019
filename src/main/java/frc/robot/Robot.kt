@@ -61,6 +61,7 @@ class Robot : TimedRobot() {
     // println("Value: " + m_sensorSubsystem.lineSensor.value.toString()) 
     // println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString()) 2(3/4") 2(2 1/4")
     // println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString()) 2'3" 8'1/4"
+    //println("Navx Pitch: " + m_sensorSubsystem.navXMicro.pitch)
   }
 
   /**
