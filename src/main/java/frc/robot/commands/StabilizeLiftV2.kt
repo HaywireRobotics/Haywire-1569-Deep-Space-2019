@@ -16,8 +16,8 @@ import frc.robot.Robot
 class StabilizeLiftV2: Command() {
   var thepitch = 0.0f
   var startpitch = 0.0f
-  val upperGuard = 3.0f
-  val lowerGuard = 3.0f
+  val upperGuard = 2.0f
+  val lowerGuard = 2.0f
   var count = 0
   init {
     // Use requires() here to declare subsystem dependencies
