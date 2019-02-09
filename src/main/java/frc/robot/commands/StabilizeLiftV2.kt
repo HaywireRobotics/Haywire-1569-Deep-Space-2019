@@ -13,9 +13,12 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class StabilizeLift: Command() {
-  var thepitch = 0.0f;
-  var count = 0;
+class StabilizeLiftV2: Command() {
+  var thepitch = 0.0f
+  var startpitch = 0.0f
+  val upperGuard = 3.0f
+  val lowerGuard = 3.0f
+  var count = 0
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_sensorSubsystem)
@@ -26,6 +29,7 @@ class StabilizeLift: Command() {
   override fun initialize () {
     println("Start stabilize lift")
     thepitch = Robot.m_sensorSubsystem.navXMicro.pitch
+    startpitch = thepitch
     Robot.m_liftRobotSubsystem.extendFrontPistons()
     Robot.m_liftRobotSubsystem.extendBackPistons()
     count = 0
@@ -35,11 +39,11 @@ class StabilizeLift: Command() {
   override fun execute () {
     thepitch = Robot.m_sensorSubsystem.navXMicro.pitch
     println(thepitch)
-    if (thepitch > 5) {
+    if (thepitch > (startpitch + upperGuard)) {
       Robot.m_liftRobotSubsystem.stopBackPistons()
       print('.')
     }
-    else if (thepitch < 0) {
+    else if (thepitch < (startpitch - lowerGuard)) {
       print('+')
       Robot.m_liftRobotSubsystem.stopFrontPistons()
     }

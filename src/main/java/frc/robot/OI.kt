@@ -52,6 +52,8 @@ class OI {
   val button3: JoystickButton = JoystickButton(manipulatorJoystick, 3)
   val button6: JoystickButton = JoystickButton(manipulatorJoystick, 6)
   val button7: JoystickButton = JoystickButton(manipulatorJoystick, 7)
+  val button8: JoystickButton = JoystickButton(manipulatorJoystick, 8)
+  val button9: JoystickButton = JoystickButton(manipulatorJoystick, 9)
   val button10: JoystickButton = JoystickButton(manipulatorJoystick, 10)
   val button11: JoystickButton = JoystickButton(manipulatorJoystick, 11)
 
@@ -71,6 +73,9 @@ class OI {
     button6.whenPressed(LiftRobot())
     button7.whenPressed(DropRobot())
 
+    button8.whenPressed(StopBack())
+    button9.whenPressed(ExtendBack())
+
     button10.whenPressed(RetractBack())
     button11.whenPressed(RetractFront())
 
@@ -80,7 +85,8 @@ class OI {
     manipulate2button4.whenPressed(WrapString())
     manipulate2button5.whenPressed(WrapStringInverted())
 
-    manipulate2button6.whenPressed(StabilizeLift())
+    // manipulate2button6.whenPressed(StabilizeLift())
+    manipulate2button6.whileHeld(StabilizeLiftV2())
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
   }

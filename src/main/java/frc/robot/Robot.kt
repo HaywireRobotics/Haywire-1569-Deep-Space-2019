@@ -134,5 +134,6 @@ class Robot : TimedRobot() {
     // println("X: " + m_sensorSubsystem.gyro.getX())
     // println("Y: " + m_sensorSubsystem.gyro.getY())
     // println("Z: " + m_sensorSubsystem.gyro.getZ())
+    SmartDashboard.putData(m_liftRobotSubsystem.BackLiftSolenoid)
   }
 }
