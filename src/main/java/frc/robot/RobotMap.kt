@@ -27,11 +27,11 @@ object RobotMap {
   // make a change
 
   // Drivetrain motor ports
-  val driveTrainLeftFront = 0 // CAN: 0
-  val driveTrainLeftRear = 1 // CAN: 4
+  val driveTrainLeftFront = 4 // CAN: 4 PWM: 0
+  val driveTrainLeftRear = 0 // CAN: 0 PWM: 1
 
-  val driveTrainRightFront = 2 // CAN: 2
-  val driveTrainRightRear = 3 // CAN: 3
+  val driveTrainRightFront = 3 // CAN: 3 PWM: 2
+  val driveTrainRightRear = 2 // CAN: 2 PWM: 3
 
   val hatchMotorPort = 4
 
@@ -39,7 +39,7 @@ object RobotMap {
   val rightIntakePort = 6
   val intakeLiftMotor = 7
 
-  var stringMotorPort = 8 // CAN: 1
+  var stringMotorPort = 1 // CAN: 1 PWM: 8
   // Solenoid ports
   val hatchPanelPort1 = 0
   val hatchPanelPort2 = 1

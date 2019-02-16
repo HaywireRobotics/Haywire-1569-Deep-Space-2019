@@ -10,6 +10,7 @@ package frc.robot.subsystems
 import edu.wpi.first.wpilibj.command.Subsystem
 import edu.wpi.first.wpilibj.*
 import edu.wpi.first.wpilibj.drive.DifferentialDrive
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX
 
 import frc.robot.commands.TeleopCommand
 import frc.robot.RobotMap
@@ -18,12 +19,12 @@ import frc.robot.RobotMap
  */
 class DriveTrainSubsystem : Subsystem() {
   // Left drive train motors
-  private val leftFront: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftFront)
-  private val leftRear: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainLeftRear)
+  private val leftFront: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainLeftFront)
+  private val leftRear: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainLeftRear)
 
   // Right drive train motors
-  private val rightFront: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightFront)
-  private val rightRear: PWMVictorSPX = PWMVictorSPX(RobotMap.driveTrainRightRear)
+  private val rightFront: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainRightFront)
+  private val rightRear: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainRightRear)
 
   private val driveleftgroup = SpeedControllerGroup(leftFront, leftRear)
   private val driverightgroup = SpeedControllerGroup(rightFront, rightRear)
