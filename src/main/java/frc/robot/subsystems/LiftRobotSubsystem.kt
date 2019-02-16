@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Solenoid
 import edu.wpi.first.wpilibj.Compressor
 import edu.wpi.first.wpilibj.PWMVictorSPX
 import edu.wpi.first.wpilibj.command.Subsystem
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX
 import frc.robot.RobotMap
 /**
  * Add your docs here.
@@ -24,8 +25,8 @@ class LiftRobotSubsystem : Subsystem() {
   // private val BackLiftSolenoid1 = Solenoid(RobotMap.liftRobotPort3)
   // private val BackLiftSolenoid2 = Solenoid(RobotMap.liftRobotPort4)
 
-  var stringMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.stringMotorPort)
-
+  //var stringMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.stringMotorPort)
+  var stringMotor: WPI_VictorSPX = WPI_VictorSPX(RobotMap.stringMotorPort )
   //val compressor: Compressor = Compressor()
 
   override fun initDefaultCommand() {
