@@ -24,9 +24,9 @@ class IntakeCargo: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-.75)
-    Robot.m_intakeSubsystem.RightIntake.setSpeed(.75)
-    println("execute")
+    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-.5)
+    Robot.m_intakeSubsystem.RightIntake.setSpeed(.5)
+    //println("execute")
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -14,6 +14,7 @@ import frc.robot.Robot
  * An example command. You can replace me with your own command.
  */
 class TeleopCommand : Command() {
+  var cargoLiftState = "hold"; 
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_driveTrainSubsystem)
@@ -33,7 +34,18 @@ class TeleopCommand : Command() {
       Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), -1 * Robot.m_oi?.rightJoystick?.getY()!!.toDouble());
     }
     Robot.m_hatchPanelSubsystem.HatchArm.set(-1 * (Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble()/2))
-    Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2)
+    if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
+      cargoLiftState = "free"
+    } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
+      cargoLiftState = "hold"
+    }
+    if (cargoLiftState == "free") {
+      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 2)
+    }  else {
+      var motSpeed = maxOf(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2, 0.05)
+      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 2)
+    }
+    
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
     //   println("Start Button!")
     //   EjectHatchPanel().start()
