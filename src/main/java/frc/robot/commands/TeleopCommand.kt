@@ -35,15 +35,18 @@ class TeleopCommand : Command() {
     }
     Robot.m_hatchPanelSubsystem.HatchArm.set(-1 * (Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble()/2))
     if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
-      cargoLiftState = "free"
-    } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
       cargoLiftState = "hold"
+     // println("Hold!!")
+    } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
+      cargoLiftState = "free"
+     // println("Free!")
     }
     if (cargoLiftState == "free") {
       Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 2)
     }  else {
-      var motSpeed = maxOf(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2, 0.05)
-      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 2)
+      var motSpeed = maxOf(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2, 0.3)
+     // println(motSpeed)
+      Robot.m_intakeSubsystem.IntakeHinge.set(motSpeed)
     }
     
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {

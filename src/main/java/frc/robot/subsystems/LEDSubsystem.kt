@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem
 import edu.wpi.first.wpilibj.Spark
 
 import frc.robot.RobotMap
+import frc.robot.commands.ApplyLEDColor
 import frc.robot.subsystems.Color
       
 /**
@@ -20,6 +21,7 @@ class LEDSubsystem: Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   var ledController: Spark = Spark(RobotMap.ledPort)
+  var currentLEDValue: Double = 0.0
   
   init {
     ledController.setSafetyEnabled(false)
@@ -27,7 +29,7 @@ class LEDSubsystem: Subsystem() {
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(ApplyLEDColor());
   }
 
   // fun <Color: Enum<Color>> setColor(color: Color) {
@@ -35,5 +37,9 @@ class LEDSubsystem: Subsystem() {
   // }
   // fun <E: Enum<E>> setColor(color: E) = println(color.name)
 
-  fun setColor(pwm: Double) = ledController.set(pwm)
+  fun setColor(pwm: Double) {
+    currentLEDValue = pwm
+  }
+
+  fun applyColor() = ledController.set(currentLEDValue)
 }

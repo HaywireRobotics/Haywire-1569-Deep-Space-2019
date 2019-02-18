@@ -13,10 +13,10 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class IntakeCargo: Command() {
+class ApplyLEDColor: Command() {
   init {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_intakeSubsystem)
+    requires(Robot.m_ledSubsystem)
   }
 
   // Called just before this Command runs the first time
@@ -24,9 +24,7 @@ class IntakeCargo: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    Robot.m_intakeSubsystem.LeftIntake.setSpeed(0.5)
-    Robot.m_intakeSubsystem.RightIntake.setSpeed(-0.5)
-    //println("execute")
+    Robot.m_ledSubsystem.applyColor()
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -39,9 +37,5 @@ class IntakeCargo: Command() {
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  override fun interrupted () {
-    println("Interrupted")
-    Robot.m_intakeSubsystem.LeftIntake.setSpeed(0.0)
-    Robot.m_intakeSubsystem.RightIntake.setSpeed(0.0)
-  }
+  override fun interrupted () {}
 }

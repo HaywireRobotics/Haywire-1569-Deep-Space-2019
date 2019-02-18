@@ -72,7 +72,7 @@ class Robot : TimedRobot() {
    */
   override fun disabledInit() {
     DropRobot().start()
-    SetLEDs(Color.RAINBOW.pwm).start()
+    SetLEDs(Color.RED.pwm).start()
   }
 
   override fun disabledPeriodic() {
