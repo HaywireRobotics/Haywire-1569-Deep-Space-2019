@@ -24,12 +24,12 @@ class LEDSubsystem: Subsystem() {
   var currentLEDValue: Double = 0.0
   
   init {
-    ledController.setSafetyEnabled(false)
+    // ledController.setSafetyEnabled(false)
   }
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(ApplyLEDColor());
+    // setDefaultCommand(ApplyLEDColor());
   }
 
   // fun <Color: Enum<Color>> setColor(color: Color) {

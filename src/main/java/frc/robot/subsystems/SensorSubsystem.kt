@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.CameraServer
 import edu.wpi.first.wpilibj.SerialPort
 import edu.wpi.first.wpilibj.AnalogInput
 import edu.wpi.first.wpilibj.I2C
+import edu.wpi.first.wpilibj.SPI
 import com.kauailabs.navx.frc.AHRS
 import edu.wpi.first.wpilibj.ADXL345_SPI
 import edu.wpi.first.wpilibj.ADXRS450_Gyro
@@ -23,6 +24,8 @@ class SensorSubsystem : Subsystem() {
   val rightEncoder: Encoder = Encoder(RobotMap.rightEncoderPort1, RobotMap.rightEncoderPort2)
 
   val navXMicro: AHRS = AHRS(I2C.Port.kOnboard)
+
+  val navXMXP: AHRS = AHRS(SPI.Port.kMXP)
 
   val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
   val lineSensorThreshold: Int = 1000
