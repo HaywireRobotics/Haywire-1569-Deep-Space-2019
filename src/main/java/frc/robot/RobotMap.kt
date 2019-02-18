@@ -52,6 +52,8 @@ object RobotMap {
   val intakePort1 = 6
   val intakePort2 = 7
 
+  val ledPort = 8
+
   // Sensor Ports
   // Analog
   val lineSensorPort = 0
