@@ -19,6 +19,8 @@ class StabilizeLiftV2: Command() {
   val upperGuard = 2.0f
   val lowerGuard = 2.0f
   var count = 0
+  var state = 0
+  var hystAngle = 0
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_sensorSubsystem)
@@ -37,20 +39,31 @@ class StabilizeLiftV2: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
-    println(theyaw)
-    if (theyaw > (startyaw + upperGuard)) {
+    if (state % 4 == 0 || state % 4 == 1) {
+      theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
+      println(theyaw)
+      if (theyaw > (startyaw + upperGuard - hystAngle)) {
+        Robot.m_liftRobotSubsystem.extendFrontPistons()
+        Robot.m_liftRobotSubsystem.stopBackPistons()
+        print('.')
+        hystAngle = 2
+      }
+      else if (theyaw < (startyaw - lowerGuard + hystAngle)) {
+        print('+')
+        Robot.m_liftRobotSubsystem.extendBackPistons()
+        Robot.m_liftRobotSubsystem.stopFrontPistons()
+        hystAngle = 2
+      }
+      else {
+        Robot.m_liftRobotSubsystem.extendFrontPistons()
+        Robot.m_liftRobotSubsystem.extendBackPistons()
+        hystAngle = 0
+      }
+    } else {
       Robot.m_liftRobotSubsystem.stopBackPistons()
-      print('.')
-    }
-    else if (theyaw < (startyaw - lowerGuard)) {
-      print('+')
       Robot.m_liftRobotSubsystem.stopFrontPistons()
     }
-    else {
-      Robot.m_liftRobotSubsystem.extendFrontPistons()
-      Robot.m_liftRobotSubsystem.extendBackPistons()
-    }
+    state = state + 1
   }
 
   // Make this return true when this Command no longer needs to run execute()
