@@ -9,6 +9,7 @@ package frc.robot.commands
 
 import edu.wpi.first.wpilibj.command.InstantCommand
 import frc.robot.Robot
+import frc.robot.subsystems.Color
 
 /**
  * Add your docs here.
@@ -17,18 +18,23 @@ class SwitchDriveDirection() : InstantCommand() {
     /**
      * Add your docs here.
      */
+    val forwardColor = Color.YELLOW.pwm
+    val backwardColor = Color.ORANGE.pwm
     init {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(Robot.m_ledSubsystem)
     }
 
     // Called once when the command executes
     override fun initialize() {
         println("Switching Direction")
         if (Robot.robotDirectionInverted) {
+            Robot.m_ledSubsystem.setColor(forwardColor)
             Robot.robotDirectionInverted = false;
         }
         else {
+            Robot.m_ledSubsystem.setColor(backwardColor)
             Robot.robotDirectionInverted = true;
         }
     }
