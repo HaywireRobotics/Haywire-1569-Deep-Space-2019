@@ -30,33 +30,40 @@ class StabilizeLiftV2: Command() {
   // Called just before this Command runs the first time
   override fun initialize () {
     println("Start stabilize lift")
+    //Robot.m_sensorSubsystem.navXMXP.zeroYaw()
+
     theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
     startyaw = theyaw
-    Robot.m_liftRobotSubsystem.extendFrontPistons()
-    Robot.m_liftRobotSubsystem.extendBackPistons()
+    println("Yaw: " + theyaw)
+    theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
+    startyaw = theyaw
+    println("UC: " + Robot.m_sensorSubsystem.navXMXP.requestedUpdateRate)
+ //   Robot.m_liftRobotSubsystem.extendFrontPistons()
+ //   Robot.m_liftRobotSubsystem.extendBackPistons()
     count = 0
   }
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    if (state % 4 == 0 || state % 4 == 1) {
+    if (state % 18 < 4) {
       theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
       println(theyaw)
       if (theyaw > (startyaw + upperGuard - hystAngle)) {
-        Robot.m_liftRobotSubsystem.extendFrontPistons()
-        Robot.m_liftRobotSubsystem.stopBackPistons()
+        Robot.m_liftRobotSubsystem.extendBackPistons()
+        Robot.m_liftRobotSubsystem.stopFrontPistons()
         print('.')
         hystAngle = 2
       }
       else if (theyaw < (startyaw - lowerGuard + hystAngle)) {
         print('+')
+        Robot.m_liftRobotSubsystem.extendFrontPistons()
         Robot.m_liftRobotSubsystem.extendBackPistons()
-        Robot.m_liftRobotSubsystem.stopFrontPistons()
         hystAngle = 2
       }
       else {
         Robot.m_liftRobotSubsystem.extendFrontPistons()
-        Robot.m_liftRobotSubsystem.extendBackPistons()
+        Robot.m_liftRobotSubsystem.stopBackPistons()
+        
         hystAngle = 0
       }
     } else {

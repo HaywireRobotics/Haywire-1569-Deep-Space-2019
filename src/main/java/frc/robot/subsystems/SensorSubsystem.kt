@@ -25,7 +25,7 @@ class SensorSubsystem : Subsystem() {
 
   val navXMicro: AHRS = AHRS(I2C.Port.kOnboard)
 
-  val navXMXP: AHRS = AHRS(SPI.Port.kMXP)
+  val navXMXP: AHRS = AHRS(SPI.Port.kMXP,2000000,200.toByte())
 
   val lineSensor: AnalogInput = AnalogInput(RobotMap.lineSensorPort)
   val lineSensorThreshold: Int = 1000
