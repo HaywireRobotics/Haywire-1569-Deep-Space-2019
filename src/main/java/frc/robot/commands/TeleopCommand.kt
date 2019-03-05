@@ -42,7 +42,7 @@ class TeleopCommand : Command() {
      // println("Free!")
     }
     if (cargoLiftState == "free") {
-      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 2)
+      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 4)
     }  else {
       var motSpeed = maxOf(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2, 0.3)
      // println(motSpeed)

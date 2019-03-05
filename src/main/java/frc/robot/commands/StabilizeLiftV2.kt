@@ -32,10 +32,10 @@ class StabilizeLiftV2: Command() {
     println("Start stabilize lift")
     //Robot.m_sensorSubsystem.navXMXP.zeroYaw()
 
-    theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
+    theyaw = Robot.m_sensorSubsystem.navXMXP.roll
     startyaw = theyaw
     println("Yaw: " + theyaw)
-    theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
+    theyaw = Robot.m_sensorSubsystem.navXMXP.roll
     startyaw = theyaw
     println("UC: " + Robot.m_sensorSubsystem.navXMXP.requestedUpdateRate)
  //   Robot.m_liftRobotSubsystem.extendFrontPistons()
@@ -45,8 +45,8 @@ class StabilizeLiftV2: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    if (state % 18 < 4) {
-      theyaw = Robot.m_sensorSubsystem.navXMXP.yaw
+    if (state % 18 < 8) {
+      theyaw = Robot.m_sensorSubsystem.navXMXP.roll
       println(theyaw)
       if (theyaw > (startyaw + upperGuard - hystAngle)) {
         Robot.m_liftRobotSubsystem.extendBackPistons()
