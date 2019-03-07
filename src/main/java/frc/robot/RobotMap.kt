@@ -40,6 +40,7 @@ object RobotMap {
   val intakeLiftMotor = 1
 
   var stringMotorPort = 1 // CAN: 1 PWM: 8
+  val johnsonMotorPort = 5
   // Solenoid ports
   val hatchPanelPort1 = 0
   val hatchPanelPort2 = 1
