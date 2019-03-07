@@ -31,6 +31,7 @@ class Robot : TimedRobot() {
     var m_oi: OI? = null
 
     val robotType: String = "Practice"
+    var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
   }
 
