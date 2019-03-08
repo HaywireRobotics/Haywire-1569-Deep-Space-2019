@@ -34,12 +34,19 @@ class SensorSubsystem : Subsystem() {
   val gyro: ADXRS450_Gyro = ADXRS450_Gyro(Port.kOnboardCS0)
 
   private val wideAngleCamera: UsbCamera
+  private val notWideAngleCamera: UsbCamera
+
+
 
   init {
     this.wideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
     this.wideAngleCamera.setResolution(480, 360)
     this.wideAngleCamera.setFPS(60)
     this.wideAngleCamera.setExposureAuto()
+    this.notWideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
+    this.notWideAngleCamera.setResolution(480, 360)
+    this.notWideAngleCamera.setFPS(60)
+    this.notWideAngleCamera.setExposureAuto()
   }
 
   fun lineSensorActive(): Boolean = (lineSensor.value > lineSensorThreshold)

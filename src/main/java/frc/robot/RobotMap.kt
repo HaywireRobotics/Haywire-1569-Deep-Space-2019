@@ -35,7 +35,7 @@ object RobotMap {
 
   val hatchMotorPort = 9
 
-  val leftIntakePort = 0
+  val leftIntakePort = 2
   val rightIntakePort = 6
   val intakeLiftMotor = 1
 
