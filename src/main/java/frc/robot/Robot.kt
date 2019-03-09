@@ -31,6 +31,7 @@ class Robot : TimedRobot() {
     var m_oi: OI? = null
 
     val robotType: String = "Practice"
+    var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
   }
 
@@ -74,11 +75,12 @@ class Robot : TimedRobot() {
    * the robot is disabled.
    */
   override fun disabledInit() {
-    DropRobot().start()
+    // DropRobot().start()
+    Robot.robotDirectionInverted = false
   }
 
   override fun disabledPeriodic() {
-    Scheduler.getInstance().run()
+    // Scheduler.getInstance().run()
   }
 
   /**

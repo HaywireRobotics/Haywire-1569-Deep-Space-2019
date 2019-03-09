@@ -14,13 +14,14 @@ import frc.robot.Robot
  * An example command. You can replace me with your own command.
  */
 class StabilizeLiftV2: Command() {
-  var theyaw = 0.0f
-  var startyaw = 0.0f
-  val upperGuard = 2.0f
-  val lowerGuard = 2.0f
+  var theRoll = 0.0f
+  var startRoll = 0.0f
+  val upperGuard = 4.0f
+  val lowerGuard = 4.0f
   var count = 0
   var state = 0
-  var hystAngle = 0
+  var hystAngle = 0.0f
+  var pulseDur = 12
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_sensorSubsystem)
@@ -32,12 +33,14 @@ class StabilizeLiftV2: Command() {
     println("Start stabilize lift")
     //Robot.m_sensorSubsystem.navXMXP.zeroYaw()
 
-    theyaw = Robot.m_sensorSubsystem.navXMXP.roll
-    startyaw = theyaw
-    println("Yaw: " + theyaw)
-    theyaw = Robot.m_sensorSubsystem.navXMXP.roll
-    startyaw = theyaw
-    println("UC: " + Robot.m_sensorSubsystem.navXMXP.requestedUpdateRate)
+    theRoll = Robot.m_sensorSubsystem.navXMXP.roll
+    startRoll = theRoll
+    println("Roll: " + theRoll)
+    theRoll = Robot.m_sensorSubsystem.navXMXP.roll
+    startRoll = theRoll //+ 0.5f
+   // println("UC: " + Robot.m_sensorSubsystem.navXMXP.requestedUpdateRate)
+  pulseDur = 50
+  hystAngle = 0f
  //   Robot.m_liftRobotSubsystem.extendFrontPistons()
  //   Robot.m_liftRobotSubsystem.extendBackPistons()
     count = 0
@@ -45,26 +48,31 @@ class StabilizeLiftV2: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    if (state % 18 < 8) {
-      theyaw = Robot.m_sensorSubsystem.navXMXP.roll
-      println(theyaw)
-      if (theyaw > (startyaw + upperGuard - hystAngle)) {
+    if (state % 4 < pulseDur) {
+      theRoll = Robot.m_sensorSubsystem.navXMXP.roll
+      println(theRoll)
+      if (theRoll > (startRoll + upperGuard - hystAngle)) {
         Robot.m_liftRobotSubsystem.extendBackPistons()
         Robot.m_liftRobotSubsystem.stopFrontPistons()
         print('.')
-        hystAngle = 2
+        hystAngle = 1f
+        pulseDur=4
       }
-      else if (theyaw < (startyaw - lowerGuard + hystAngle)) {
+      else if (theRoll < (startRoll - lowerGuard + hystAngle)) {
         print('+')
         Robot.m_liftRobotSubsystem.extendFrontPistons()
-        Robot.m_liftRobotSubsystem.extendBackPistons()
-        hystAngle = 2
+        Robot.m_liftRobotSubsystem.stopBackPistons()
+        hystAngle = 1f
+        pulseDur = 4
       }
       else {
         Robot.m_liftRobotSubsystem.extendFrontPistons()
-        Robot.m_liftRobotSubsystem.stopBackPistons()
-        
-        hystAngle = 0
+        Robot.m_liftRobotSubsystem.extendBackPistons()
+        if (pulseDur != 30) {
+        //  pulseDur = 10
+        }
+          
+        hystAngle = 0f
       }
     } else {
       Robot.m_liftRobotSubsystem.stopBackPistons()
@@ -76,7 +84,7 @@ class StabilizeLiftV2: Command() {
   // Make this return true when this Command no longer needs to run execute()
   override fun isFinished (): Boolean {
     // count++
-    // return (theyaw < -2)
+    // return (theRoll < -2)
     // return (count >= 5)
     return false
   }

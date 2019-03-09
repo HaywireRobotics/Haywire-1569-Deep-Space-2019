@@ -25,7 +25,7 @@ class LiftRobotSubsystem : Subsystem() {
   // private val BackLiftSolenoid1 = Solenoid(RobotMap.liftRobotPort3)
   // private val BackLiftSolenoid2 = Solenoid(RobotMap.liftRobotPort4)
 
-  //var stringMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.stringMotorPort)
+  var johnsonMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.johnsonMotorPort)
   var stringMotor: WPI_VictorSPX = WPI_VictorSPX(RobotMap.stringMotorPort )
   //val compressor: Compressor = Compressor()
 
@@ -33,12 +33,14 @@ class LiftRobotSubsystem : Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  // fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   fun retractFrontPistons () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   
   fun stopFrontPistons() = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kOff)
 
-  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  // fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   fun retractBackPistons () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   // fun extendBackPistons() {
   //   this.BackLiftSolenoid1.set(true);

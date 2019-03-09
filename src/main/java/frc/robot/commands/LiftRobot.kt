@@ -25,6 +25,8 @@ class LiftRobot() : InstantCommand() {
 
     // Called once when the command executes
     override fun initialize() {
+        // Robot.m_liftRobotSubsystem.johnsonMotor.setSafetyEnabled(false)
+        // Robot.m_liftRobotSubsystem.johnsonMotor.set(0.1)
         Robot.m_liftRobotSubsystem.extendBackPistons()
         Robot.m_liftRobotSubsystem.extendFrontPistons()
     }
