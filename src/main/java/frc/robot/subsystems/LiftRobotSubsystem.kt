@@ -33,12 +33,14 @@ class LiftRobotSubsystem : Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-  fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  // fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   fun retractFrontPistons () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   
   fun stopFrontPistons() = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kOff)
 
-  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  // fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   fun retractBackPistons () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   // fun extendBackPistons() {
   //   this.BackLiftSolenoid1.set(true);

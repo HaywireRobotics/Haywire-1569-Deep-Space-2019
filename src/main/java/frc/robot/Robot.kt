@@ -75,11 +75,12 @@ class Robot : TimedRobot() {
    * the robot is disabled.
    */
   override fun disabledInit() {
-    DropRobot().start()
+    // DropRobot().start()
+    Robot.robotDirectionInverted = false
   }
 
   override fun disabledPeriodic() {
-    Scheduler.getInstance().run()
+    // Scheduler.getInstance().run()
   }
 
   /**
