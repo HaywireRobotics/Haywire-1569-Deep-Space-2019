@@ -67,6 +67,10 @@ class Robot : TimedRobot() {
      //println("Navx Pitch: " + m_sensorSubsystem.navXMXP.pitch)
      //println("Navx Yaw: " + m_sensorSubsystem.navXMXP.yaw)
     //println("Navx Roll: " + m_sensorSubsystem.navXMXP.roll)
+    //println("Cargo Pitch: " + m_sensorSubsystem.cargoNavX.pitch)
+    //println("Cargo Yaw: " + m_sensorSubsystem.cargoNavX.yaw)
+    //println("Cargo Roll: " + m_sensorSubsystem.cargoNavX.roll)
+    println("JMotor Value: " + Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
   }
 
   /**
@@ -120,6 +124,8 @@ class Robot : TimedRobot() {
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
+    m_liftRobotSubsystem.stopBackPistons()
+    m_liftRobotSubsystem.stopFrontPistons()
     m_autonomousCommand?.cancel()
     TeleopCommand().start()
   }

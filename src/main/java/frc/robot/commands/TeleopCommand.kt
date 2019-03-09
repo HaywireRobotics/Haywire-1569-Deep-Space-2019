@@ -14,7 +14,8 @@ import frc.robot.Robot
  * An example command. You can replace me with your own command.
  */
 class TeleopCommand : Command() {
-  var cargoLiftState = "hold"; 
+  var cargoLiftState = "hold"
+  var holdAngle = -90f
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_driveTrainSubsystem)
@@ -36,15 +37,28 @@ class TeleopCommand : Command() {
     Robot.m_hatchPanelSubsystem.HatchArm.set(-1 * (Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble()/2))
     if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
       cargoLiftState = "hold"
+      holdAngle = Robot.m_sensorSubsystem.cargoNavX.pitch
      // println("Hold!!")
     } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
       cargoLiftState = "free"
      // println("Free!")
     }
     if (cargoLiftState == "free") {
-      Robot.m_intakeSubsystem.IntakeHinge.set(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble() / 4)
+      var joyInput =  Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()
+      if (Robot.m_sensorSubsystem.cargoNavX.pitch > 20 && joyInput < -0.2) {
+        joyInput = -0.2
+      }
+      Robot.m_intakeSubsystem.IntakeHinge.set(joyInput / 4.0)
     }  else {
-      var motSpeed = maxOf(Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2, 0.3)
+      var holdDrive = 0.3
+      if (holdAngle < -50f) {
+        holdDrive = 0.15
+      }
+      var joySpeed = Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()/2
+      if (Robot.m_sensorSubsystem.cargoNavX.pitch < -85) {
+        joySpeed = maxOf(joySpeed, 0.2)
+      }
+      var motSpeed = maxOf(joySpeed, holdDrive)
      // println(motSpeed)
       Robot.m_intakeSubsystem.IntakeHinge.set(motSpeed)
     }

@@ -25,7 +25,7 @@ class StabilizeLift: Command() {
   // Called just before this Command runs the first time
   override fun initialize () {
     println("Start stabilize lift")
-    thepitch = Robot.m_sensorSubsystem.navXMicro.pitch
+    thepitch = 0f;//Robot.m_sensorSubsystem.navXMicro.pitch
     Robot.m_liftRobotSubsystem.extendFrontPistons()
     Robot.m_liftRobotSubsystem.extendBackPistons()
     count = 0
@@ -33,7 +33,7 @@ class StabilizeLift: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    thepitch = Robot.m_sensorSubsystem.navXMicro.pitch
+    thepitch = 0f;//Robot.m_sensorSubsystem.navXMicro.pitch
     println(thepitch)
     if (thepitch > 5) {
       Robot.m_liftRobotSubsystem.stopBackPistons()

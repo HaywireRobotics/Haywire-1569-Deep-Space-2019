@@ -59,7 +59,7 @@ class TankTrajectoryFollower(val parentObject: MotionExecutor, val leftFollower:
         rightPower = rightFollower.calculate(Robot.m_sensorSubsystem.rightEncoder.raw)
 
         // Gyro correction
-        gyroHeading = Robot.m_sensorSubsystem.navXMicro.rawAccelZ
+        gyroHeading = 0f //Robot.m_sensorSubsystem.navXMicro.rawAccelZ
         desiredHeading = Pathfinder.r2d(leftFollower.heading)
 
         angleDifference = Pathfinder.boundHalfDegrees(desiredHeading - gyroHeading)
