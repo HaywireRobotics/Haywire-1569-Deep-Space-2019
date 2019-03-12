@@ -29,23 +29,25 @@ class WrapString: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    when (this.time.get() > (1.0)) {  
-      true -> Robot.m_liftRobotSubsystem.stringMotor.set(0.0)
-      false -> Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
+    // when (this.time.get() > (1.0)) {  
+    //   true -> Robot.m_liftRobotSubsystem.stringMotor.set(0.0)
+    //   false -> Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
     
-    }
+    // }
+    Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
   }
 
   // Make this return true when this Command no longer needs to run execute()
 
   override fun isFinished(): Boolean {
-    return this.time.hasPeriodPassed(1.1)
+    // return this.time.hasPeriodPassed(1.1)
+    return false
   }
 
   // Called once after isFinished returns true
-  override fun end() {}
+  override fun end() = Robot.m_liftRobotSubsystem.stringMotor.set(0.0)
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
-  override fun interrupted() {}
+  override fun interrupted() = this.end()
 }

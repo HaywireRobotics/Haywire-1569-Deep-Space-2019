@@ -63,7 +63,8 @@ class TeleopCommand : Command() {
       Robot.m_intakeSubsystem.IntakeHinge.set(motSpeed)
     }
     if (Robot.climbing) {
-      Robot.m_liftRobotSubsystem.johnsonMotor.set(Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
+      // Robot.m_liftRobotSubsystem.johnsonMotor.set(Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
+      Robot.m_liftRobotSubsystem.johnsonMotor.set(-.3)
     }
     
     // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {

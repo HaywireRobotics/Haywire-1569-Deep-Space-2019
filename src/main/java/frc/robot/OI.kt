@@ -82,7 +82,7 @@ class OI {
     manipulate2button1.whenPressed(ExpandCargoIntake())
     manipulate2button2.whenPressed(ContractCargoIntake())
     manipulate2button3.whileHeld(ExtrudeCargoSlow())
-    manipulate2button4.whenPressed(WrapString())
+    manipulate2button4.whileHeld(WrapString())
     manipulate2button5.whenPressed(WrapStringInverted())
 
     // manipulate2button6.whenPressed(StabilizeLift())
