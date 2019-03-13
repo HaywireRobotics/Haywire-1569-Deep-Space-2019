@@ -37,7 +37,7 @@ object RobotMap {
 
   val leftIntakePort = 2
   val rightIntakePort = 6
-  val intakeLiftMotor = 1
+  val intakeLiftMotor = 0
 
   var stringMotorPort = 1 // CAN: 1 PWM: 8
   val johnsonMotorPort = 5
