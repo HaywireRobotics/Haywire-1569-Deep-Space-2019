@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.ADXL345_SPI
 import edu.wpi.first.wpilibj.ADXRS450_Gyro
 import edu.wpi.first.wpilibj.SPI.Port
 import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range
-
 import frc.robot.RobotMap
 
 /**
@@ -33,6 +32,8 @@ class SensorSubsystem : Subsystem() {
   // val gyro: ADXL345_SPI = ADXL345_SPI(Port.kOnboardCS0, Range.k8G)
   val gyro: ADXRS450_Gyro = ADXRS450_Gyro(Port.kOnboardCS0)
   val cargoNavX: AHRS = AHRS(I2C.Port.kOnboard)
+  val rangeSensor: AnalogInput = AnalogInput(RobotMap.rangeSensorPort)
+  
   private val wideAngleCamera: UsbCamera
   private val notWideAngleCamera: UsbCamera
 

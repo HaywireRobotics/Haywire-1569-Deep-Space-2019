@@ -70,7 +70,7 @@ class Robot : TimedRobot() {
     //println("Cargo Pitch: " + m_sensorSubsystem.cargoNavX.pitch)
     //println("Cargo Yaw: " + m_sensorSubsystem.cargoNavX.yaw)
     //println("Cargo Roll: " + m_sensorSubsystem.cargoNavX.roll)
-    println("JMotor Value: " + Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
+    println("Range: " + m_sensorSubsystem.rangeSensor.voltage)
   }
 
   /**
@@ -128,6 +128,7 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.stopFrontPistons()
     m_autonomousCommand?.cancel()
     TeleopCommand().start()
+    ApplyLEDColor().start()
   }
 
   /**

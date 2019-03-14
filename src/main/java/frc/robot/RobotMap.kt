@@ -58,7 +58,8 @@ object RobotMap {
   // Sensor Ports
   // Analog
   val lineSensorPort = 0
-
+  val rangeSensorPort = 1
+  
   // Digital
   val leftEncoderPort1 = 0
   val leftEncoderPort2 = 1
