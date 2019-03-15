@@ -29,5 +29,6 @@ class LiftRobot() : InstantCommand() {
         // Robot.m_liftRobotSubsystem.johnsonMotor.set(0.1)
         Robot.m_liftRobotSubsystem.extendBackPistons()
         Robot.m_liftRobotSubsystem.extendFrontPistons()
+        Robot.climbing = true
     }
 }

@@ -33,6 +33,7 @@ class Robot : TimedRobot() {
     val robotType: String = "Practice"
     var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
+    var autonomousRun: Boolean = false
   }
 
   var m_autonomousCommand: Command? = null
@@ -49,6 +50,7 @@ class Robot : TimedRobot() {
     SmartDashboard.putData("Auto mode", m_chooser)
     m_liftRobotSubsystem.retractBackPistons()
     m_liftRobotSubsystem.retractFrontPistons()
+    m_ledSubsystem.setColor(Color.RED.pwm)
   }
 
   /**
@@ -110,6 +112,8 @@ class Robot : TimedRobot() {
 
     // schedule the autonomous command (example)
     m_chooser.selected?.start()
+    autonomousRun = true
+    robotDirectionInverted = false
   }
 
   /**
@@ -128,7 +132,12 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.stopFrontPistons()
     m_autonomousCommand?.cancel()
     TeleopCommand().start()
-    ApplyLEDColor().start()
+    // ApplyLEDColor().start()
+    climbing = false
+    if (!autonomousRun) {
+      robotDirectionInverted = false
+    }
+    autonomousRun = false
   }
 
   /**
@@ -138,6 +147,7 @@ class Robot : TimedRobot() {
     // println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
     // println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
     Scheduler.getInstance().run()
+    
   }
 
   /**
