@@ -10,6 +10,7 @@ import frc.robot.RobotMap
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.DoubleSolenoid
 import edu.wpi.first.wpilibj.command.Subsystem
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX
       
 /**
  * Add your docs here.
@@ -20,7 +21,7 @@ class IntakeSubsystem: Subsystem() {
   val LeftIntake = Spark(RobotMap.leftIntakePort)
   val RightIntake = Spark(RobotMap.rightIntakePort)
 
-  val IntakeHinge = Spark(RobotMap.intakeLiftMotor)
+  val IntakeHinge = WPI_TalonSRX(RobotMap.intakeLiftMotor)
 
   val piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
       

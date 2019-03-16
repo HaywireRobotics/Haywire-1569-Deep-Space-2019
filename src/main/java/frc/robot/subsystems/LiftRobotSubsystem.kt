@@ -25,7 +25,7 @@ class LiftRobotSubsystem : Subsystem() {
   // private val BackLiftSolenoid1 = Solenoid(RobotMap.liftRobotPort3)
   // private val BackLiftSolenoid2 = Solenoid(RobotMap.liftRobotPort4)
 
-  var johnsonMotor: PWMVictorSPX = PWMVictorSPX (RobotMap.johnsonMotorPort)
+  var johnsonMotor: WPI_VictorSPX = WPI_VictorSPX (RobotMap.johnsonMotorPort)
   var stringMotor: WPI_VictorSPX = WPI_VictorSPX(RobotMap.stringMotorPort )
   //val compressor: Compressor = Compressor()
 
