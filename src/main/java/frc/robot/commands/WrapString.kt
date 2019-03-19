@@ -34,7 +34,7 @@ class WrapString: Command() {
     //   false -> Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
     
     // }
-    Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
+    Robot.m_liftRobotSubsystem.stringMotor.set(0.2)
   }
 
   // Make this return true when this Command no longer needs to run execute()
