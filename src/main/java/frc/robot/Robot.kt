@@ -50,7 +50,7 @@ class Robot : TimedRobot() {
     SmartDashboard.putData("Auto mode", m_chooser)
     m_liftRobotSubsystem.retractBackPistons()
     m_liftRobotSubsystem.retractFrontPistons()
-    m_ledSubsystem.setColor(Color.RED.pwm)
+    m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
   }
 
   /**
@@ -83,6 +83,7 @@ class Robot : TimedRobot() {
   override fun disabledInit() {
     // DropRobot().start()
     Robot.robotDirectionInverted = false
+    m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
   }
 
   override fun disabledPeriodic() {
@@ -114,6 +115,7 @@ class Robot : TimedRobot() {
     m_chooser.selected?.start()
     autonomousRun = true
     robotDirectionInverted = false
+    m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
   }
 
   /**
@@ -136,6 +138,7 @@ class Robot : TimedRobot() {
     climbing = false
     if (!autonomousRun) {
       robotDirectionInverted = false
+      m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
     }
     autonomousRun = false
   }

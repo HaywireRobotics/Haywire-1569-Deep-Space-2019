@@ -18,8 +18,10 @@ class SwitchDriveDirection() : InstantCommand() {
     /**
      * Add your docs here.
      */
-    val forwardColor = Color.BLUE.pwm
-    val backwardColor = Color.RED.pwm
+    companion object {
+        val forwardColor = Color.BLUE.pwm
+        val backwardColor = Color.RED.pwm
+    }
     init {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
