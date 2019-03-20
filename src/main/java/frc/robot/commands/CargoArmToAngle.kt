@@ -7,7 +7,7 @@
 
 package frc.robot.commands
 
-import kotlin.comparisons.maxOf
+import kotlin.comparisons.minOf
 import kotlin.math.abs
 
 import edu.wpi.first.wpilibj.command.Command
@@ -22,21 +22,29 @@ class CargoArmToAngle(val targetAngle: Int): Command() {
     requires(Robot.m_intakeSubsystem)
     requires(Robot.m_sensorSubsystem)
   }
-  val maxArmPower: Double = 0.4;
+  val maxArmPower: Double = 0.4
+  var robotPower: Double = 0.0
 
   // Called just before this Command runs the first time
   override fun initialize () {}
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    println(Robot.m_sensorSubsystem.cargoNavX.pitch)
+    // println(Robot.m_sensorSubsystem.cargoNavX.pitch)
+    robotPower = 0.0
     if (Robot.m_sensorSubsystem.cargoNavX.pitch < targetAngle) {
-      Robot.m_intakeSubsystem.IntakeHinge.set(-maxOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/2).toDouble()))
+      robotPower = -minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble())
+      // Robot.m_intakeSubsystem.IntakeHinge.set(-minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble()))
     } else if (Robot.m_sensorSubsystem.cargoNavX.pitch > targetAngle) {
-      Robot.m_intakeSubsystem.IntakeHinge.set(maxOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/2).toDouble()))
+      // robotPower = minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble())
+      // Robot.m_intakeSubsystem.IntakeHinge.set(minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble()))
+      robotPower = 0.0
     } else {
-      Robot.m_intakeSubsystem.IntakeHinge.set(0.0)
+      // Robot.m_intakeSubsystem.IntakeHinge.set(0.0)
+      robotPower = 0.0
     }
+    println(robotPower)
+    Robot.m_intakeSubsystem.IntakeHinge.set(robotPower)
     println("Executed")
   }
 
