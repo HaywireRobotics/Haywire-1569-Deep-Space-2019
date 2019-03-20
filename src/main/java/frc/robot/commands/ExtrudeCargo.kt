@@ -24,8 +24,8 @@ class ExtrudeCargo: Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-1.0)
-    Robot.m_intakeSubsystem.RightIntake.setSpeed(1.0)
+    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-.5)
+    Robot.m_intakeSubsystem.RightIntake.setSpeed(.5)
   }
 
   // Make this return true when this Command no longer needs to run execute()
