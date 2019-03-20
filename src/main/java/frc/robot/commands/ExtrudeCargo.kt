@@ -20,7 +20,10 @@ class ExtrudeCargo: Command() {
   }
 
   // Called just before this Command runs the first time
-  override fun initialize () {}
+  override fun initialize () {
+    Robot.m_intakeSubsystem.LeftIntake.setSpeed(-1.0)
+    Robot.m_intakeSubsystem.RightIntake.setSpeed(1.0)
+  }
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {

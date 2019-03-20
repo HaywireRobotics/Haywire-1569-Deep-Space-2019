@@ -17,14 +17,14 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class CargoArmToAngle(val targetAngle: Int): Command() {
+class CargoArmToAngle(val targetAngle: Double): Command() {
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_intakeSubsystem)
     requires(Robot.m_sensorSubsystem)
   }
   val maxArmPower: Double = 0.5
-  val iterationMultiplier: Double = 0.5
+  val iterationMultiplier: Double = 0.0
   var robotPower: Double = 0.0
   var iterations: Double = 0.0
 
@@ -35,16 +35,16 @@ class CargoArmToAngle(val targetAngle: Int): Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute () {
-    // println(Robot.m_sensorSubsystem.cargoNavX.pitch)
+    println(Robot.m_sensorSubsystem.cargoNavX.pitch)
     iterations += 1
     println(round(iterations * iterationMultiplier).toString())
     robotPower = 0.0
     if (Robot.m_sensorSubsystem.cargoNavX.pitch < targetAngle) {
       // robotPower = -minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble())
       // Robot.m_intakeSubsystem.IntakeHinge.set(-minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble()))
-      robotPower = 0.0
+      robotPower = 0.1
     } else if (Robot.m_sensorSubsystem.cargoNavX.pitch > targetAngle) {
-      robotPower = minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/(20 + (iterations * iterationMultiplier))).toDouble())
+      robotPower = minOf(maxArmPower, maxOf((abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/(20 + (iterations * iterationMultiplier))).toDouble(),0.1))
       // Robot.m_intakeSubsystem.IntakeHinge.set(minOf(maxArmPower, (abs(Robot.m_sensorSubsystem.cargoNavX.pitch - targetAngle)/10).toDouble()))
       // robotPower = 0.0
     } else {

@@ -73,7 +73,7 @@ class OI {
     button2.whileHeld(IntakeCargo())
     button3.whileHeld(ExtrudeCargo())
 
-    button4.whenPressed(CargoArmToAngle(-54))
+    button4.whenPressed(CargoArmToAngle(-70.0))
 
     button6.whenPressed(LiftRobot())
     button7.whenPressed(DropRobot())
