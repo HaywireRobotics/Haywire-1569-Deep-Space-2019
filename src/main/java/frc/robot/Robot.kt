@@ -69,10 +69,10 @@ class Robot : TimedRobot() {
      //println("Navx Pitch: " + m_sensorSubsystem.navXMXP.pitch)
      //println("Navx Yaw: " + m_sensorSubsystem.navXMXP.yaw)
     //println("Navx Roll: " + m_sensorSubsystem.navXMXP.roll)
-    //println("Cargo Pitch: " + m_sensorSubsystem.cargoNavX.pitch)
+    // println("Cargo Pitch: " + m_sensorSubsystem.cargoNavX.pitch)
     //println("Cargo Yaw: " + m_sensorSubsystem.cargoNavX.yaw)
     //println("Cargo Roll: " + m_sensorSubsystem.cargoNavX.roll)
-    println("Range: " + m_sensorSubsystem.rangeSensor.voltage)
+    // println("Range: " + m_sensorSubsystem.rangeSensor.voltage)
   }
 
   /**
@@ -82,8 +82,11 @@ class Robot : TimedRobot() {
    */
   override fun disabledInit() {
     // DropRobot().start()
-    Robot.robotDirectionInverted = false
-    m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
+    if (!autonomousRun) {
+      Robot.robotDirectionInverted = false
+      m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
+      println("Switch the drive direction in disabled")
+    }
   }
 
   override fun disabledPeriodic() {
