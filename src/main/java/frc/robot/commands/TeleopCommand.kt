@@ -64,7 +64,7 @@ class TeleopCommand : Command() {
     }
     if (Robot.climbing) {
       // Robot.m_liftRobotSubsystem.johnsonMotor.set(Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
-      Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.29)
+      Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.28)
       println("Troy Philip JOHNSON!!!!")
     } else {
       Robot.m_liftRobotSubsystem.johnsonMotor.set(0.0)

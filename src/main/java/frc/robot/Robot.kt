@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
 import frc.robot.commands.*
 import frc.robot.subsystems.*
 import frc.robot.pathfinder.util.MotionProfiler
+import frc.robot.raspiserver.TCPServer
 
 class Robot : TimedRobot() {
 
@@ -34,6 +35,8 @@ class Robot : TimedRobot() {
     var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
     var autonomousRun: Boolean = false
+
+    val tcpServer: TCPServer = TCPServer()
   }
 
   var m_autonomousCommand: Command? = null
@@ -51,6 +54,7 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.retractBackPistons()
     m_liftRobotSubsystem.retractFrontPistons()
     m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
+    tcpServer.start(5800)
   }
 
   /**
