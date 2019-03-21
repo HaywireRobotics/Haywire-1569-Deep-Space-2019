@@ -7,6 +7,7 @@ import java.nio.charset.Charset
 
 class TCPServer(val port: Int) : Thread(){
     private lateinit var serverSocket: ServerSocket
+    var clients: MutableList<Thread> = mutableListOf()
 
     override fun run() = loop(port)
 
@@ -15,10 +16,10 @@ class TCPServer(val port: Int) : Thread(){
             serverSocket = ServerSocket(port)
             while (true) {
                 println("Connecting to client")
-                ClientHandler(serverSocket.accept()).start()
+                clients.add(ClientHandler(serverSocket.accept()))
+                clients[clients.lastIndex].start()
                 println("Connected")
             }
-
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
@@ -33,6 +34,11 @@ class TCPServer(val port: Int) : Thread(){
             e.printStackTrace()
         }
     }
+
+    // LIDAR sensors are 0-indexed
+    fun getLIDAR(id: Int) {}
+
+    fun getAngleToCenterBay() {}
 }
 
 class ClientHandler(val clientSocket: Socket) : Thread() {
