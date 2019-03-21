@@ -3,6 +3,7 @@ package frc.robot.raspiserver
 /*
 Distance Command = d {id} {value in mm}
 Angle Command = a {angle in degrees}
+Register Command = r {client type (cv for camera vision, d for distance)}
  */
 
 class Commands {
@@ -21,6 +22,13 @@ class Commands {
         override val helpMessage: String = "Send an angle to track"
         override val commandString: String = "a"
         override val commandArgs: String = "{angle in degrees}"
+        override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
+    }
+
+    class Register: ICommand() {
+        override val helpMessage: String = "Register the client"
+        override val commandString: String = "r"
+        override val commandArgs: String = "{client type (cv for camera vision, d for distance)}"
         override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
     }
 
