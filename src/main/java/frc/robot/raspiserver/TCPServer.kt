@@ -22,7 +22,7 @@ class TCPServer(val port: Int) : Thread(){
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
-            stop()
+            stopTheServer()
         }
     }
 

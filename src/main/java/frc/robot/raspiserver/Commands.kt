@@ -8,7 +8,7 @@ Register Command = r {client type (cv for camera vision, d for distance)}
 
 class Commands {
     companion object {
-        val commands: List<ICommand> = listOf<ICommand>(Quit(), Distance(), Angle(), Register(), Help())
+        val commands: List<ICommand> = listOf<ICommand>(Quit(), Distance(), Angle(), Help())
     }
 
     class Distance: ICommand() {
@@ -22,13 +22,6 @@ class Commands {
         override val helpMessage: String = "Send an angle to track"
         override val commandString: String = "a"
         override val commandArgs: String = "{angle in degrees}"
-        override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
-    }
-
-    class Register: ICommand() {
-        override val helpMessage: String = "Register the client"
-        override val commandString: String = "r"
-        override val commandArgs: String = "{client type (cv for camera vision, d for distance)}"
         override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
     }
 
