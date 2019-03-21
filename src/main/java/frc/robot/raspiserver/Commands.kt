@@ -8,7 +8,7 @@ Register Command = r {client type (cv for camera vision, d for distance)}
 
 class Commands {
     companion object {
-        val commands: List<ICommand> = listOf<ICommand>(Quit())
+        val commands: List<ICommand> = listOf<ICommand>(Quit(), Distance(), Angle(), Register(), Help())
     }
 
     class Distance: ICommand() {

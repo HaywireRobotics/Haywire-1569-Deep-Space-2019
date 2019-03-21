@@ -5,10 +5,12 @@ import java.net.*
 import java.io.*
 import java.nio.charset.Charset
 
-class TCPServer {
+class TCPServer(val port: Int) : Thread(){
     private lateinit var serverSocket: ServerSocket
 
-    fun start(port: Int) {
+    override fun run() = loop(port)
+
+    fun loop(port: Int) {
         try {
             serverSocket = ServerSocket(port)
             while (true) {
@@ -24,7 +26,7 @@ class TCPServer {
         }
     }
 
-    fun stop() {
+    fun stopTheServer() {
         try {
             serverSocket.close()
         } catch(e: IOException) {

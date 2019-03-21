@@ -36,12 +36,18 @@ class Robot : TimedRobot() {
     var robotDirectionInverted: Boolean = false
     var autonomousRun: Boolean = false
 
-    val tcpServer: TCPServer = TCPServer()
+    val distanceServer: TCPServer = TCPServer(5800)
+    val cameraVisionServer: TCPServer = TCPServer(5807)
   }
 
   var m_autonomousCommand: Command? = null
   var m_chooser: SendableChooser<Command> = SendableChooser()
 
+  init {
+    distanceServer.start()
+    cameraVisionServer.start()
+    println("Continuing")
+  }
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -54,7 +60,7 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.retractBackPistons()
     m_liftRobotSubsystem.retractFrontPistons()
     m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
-    tcpServer.start(5800)
+    println("Still moving on")
   }
 
   /**
