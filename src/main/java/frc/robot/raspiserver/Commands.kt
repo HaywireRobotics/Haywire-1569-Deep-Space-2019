@@ -2,7 +2,7 @@ package frc.robot.raspiserver
 
 /*
 Distance Command = d {id} {value in mm}
-
+Angle Command = a {angle in degrees}
  */
 
 class Commands {
@@ -14,6 +14,13 @@ class Commands {
         override val helpMessage: String = "Send distance to the server."
         override val commandString: String = "d"
         override val commandArgs: String = "{id} {distance in mm}"
+        override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
+    }
+
+    class Angle: ICommand() {
+        override val helpMessage: String = "Send an angle to track"
+        override val commandString: String = "a"
+        override val commandArgs: String = "{angle in degrees}"
         override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
     }
 

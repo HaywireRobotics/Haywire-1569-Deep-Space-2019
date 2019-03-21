@@ -5,11 +5,6 @@ import java.net.*
 import java.io.*
 import java.nio.charset.Charset
 
-/*
-Basic commands
-quit - Quits the connection
- */
-
 class TCPServer {
     private lateinit var serverSocket: ServerSocket
 
