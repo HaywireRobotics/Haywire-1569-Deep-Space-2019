@@ -19,7 +19,7 @@ class Commands {
     }
 
     class Angle: ICommand() {
-        override val helpMessage: String = "Send an angle to track"
+        override val helpMessage: String = "Send an angle to track to."
         override val commandString: String = "a"
         override val commandArgs: String = "{angle in degrees}"
         override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)

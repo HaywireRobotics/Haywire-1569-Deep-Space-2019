@@ -7,7 +7,7 @@ import java.nio.charset.Charset
 
 class TCPServer(val port: Int) : Thread(){
     private lateinit var serverSocket: ServerSocket
-    var clients: MutableList<Thread> = mutableListOf()
+    var clientHandlers: MutableList<ClientHandler> = mutableListOf()
 
     override fun run() = loop(port)
 
@@ -16,8 +16,8 @@ class TCPServer(val port: Int) : Thread(){
             serverSocket = ServerSocket(port)
             while (true) {
                 println("Connecting to client")
-                clients.add(ClientHandler(serverSocket.accept()))
-                clients[clients.lastIndex].start()
+                clientHandlers.add(ClientHandler(serverSocket.accept()))
+                clientHandlers[clientHandlers.lastIndex].start()
                 println("Connected")
             }
         } catch (e: IOException) {
@@ -36,15 +36,25 @@ class TCPServer(val port: Int) : Thread(){
     }
 
     // LIDAR sensors are 0-indexed
-    fun getLIDAR(id: Int) {}
+    fun initiateLIDARRequest(id: Int) {
+        for (client in clientHandlers) {
+            client.distanceRequest = id
+        }
+    }
 
-    fun getAngleToCenterBay() {}
+    fun initiateAngleToCenterTargetRequest() {
+        for (client in clientHandlers) {
+            client.angleRequest = true
+        }
+    }
 }
 
 class ClientHandler(val clientSocket: Socket) : Thread() {
     lateinit var outReader: PrintWriter
     lateinit var inR: InputStreamReader
     lateinit var inReader: CustomReader
+    var distanceRequest: Int = -1
+    var angleRequest: Boolean = false
 
     override fun run() {
         try {
@@ -58,7 +68,7 @@ class ClientHandler(val clientSocket: Socket) : Thread() {
             whileLoop@ while (true) {
                 inputLine = this.inReader.read()
                 response = ""
-                forLoop@for (command in Commands.commands) {
+                forLoop@ for (command in Commands.commands) {
                     var splitInput: List<String> = inputLine.split(" ")
                     if (splitInput[0] == command.commandString) {
                         println(command.commandString)
@@ -72,9 +82,20 @@ class ClientHandler(val clientSocket: Socket) : Thread() {
                         break@forLoop
                     }
                 }
-                this.outReader.println(response)
+                // Wait until the robot requests data
+                dataLoop@ while (true) {
+                    if (distanceRequest != -1) {
+                        this.outReader.println("d${distanceRequest}")
+                        distanceRequest = -1
+                        break@dataLoop
+                    }
+                    if (angleRequest) {
+                        this.outReader.println("ar")
+                        angleRequest = false
+                        break@dataLoop
+                    }
+                }
             }
-
             this.outReader.println(response)
 
             this.inReader.close()
