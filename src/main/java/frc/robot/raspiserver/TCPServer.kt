@@ -23,6 +23,7 @@ class TCPServer(val port: Int) : Thread(){
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
+            println("Server shutting down!")
             stopTheServer()
         }
     }
