@@ -7,6 +7,7 @@
       
 package frc.robot.subsystems
       
+import java.util.concurrent.locks.ReentrantLock
 import edu.wpi.first.wpilibj.command.Subsystem
 import frc.robot.Robot
       
@@ -16,6 +17,7 @@ import frc.robot.Robot
 class RaspiSubsystem: Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public val lidarDataLock: ReentrantLock = ReentrantLock()
   public var frontLIDARInputted: Boolean = false
   public var frontLIDARValue: Int = 0
       
@@ -26,13 +28,22 @@ class RaspiSubsystem: Subsystem() {
 
   fun getFrontLIDAR(): Int {
     // TODO: Communicate with the distance server to get the front LIDAR value
-    println("Get LIDAR")
+    // println("Get LIDAR")
     while (Robot.distanceServer.clientHandlers.size == 0) {}
-    println("Enough clients")
+    // println("Enough clients")
     Robot.distanceServer.initiateLIDARRequest(0)
     // TODO: Fix this while loop to implement locks so that things actually work.
-    while (!frontLIDARInputted) {}
-    print("LIDAR value found")
+    while (true) {
+      try {
+        lidarDataLock.lock()
+        if (frontLIDARInputted) {
+          break
+        }
+      } finally {
+        lidarDataLock.unlock()
+      }
+    }
+    // print("LIDAR value found")
     frontLIDARInputted = false
     return frontLIDARValue
   }
