@@ -1,5 +1,7 @@
 package frc.robot.raspiserver
 
+import frc.robot.Robot
+
 /*
 Distance Command = d {id} {value in mm}
 Angle Command = a {angle in degrees}
@@ -15,7 +17,13 @@ class Commands {
         override val helpMessage: String = "Send distance to the server."
         override val commandString: String = "d"
         override val commandArgs: String = "{id} {distance in mm}"
-        override fun run(args: List<String>): CommandResponse = CommandResponse("NuLl", false)
+        override fun run(args: List<String>): CommandResponse {
+            println(args[0].toString() + ":" + args[1].toString())
+            Robot.m_raspiSubsystem.frontLIDARValue = args[1].toInt()
+            Robot.m_raspiSubsystem.frontLIDARInputted = true
+            println("Set the things")
+            return CommandResponse("NuLl", false)
+        }
     }
 
     class Angle: ICommand() {

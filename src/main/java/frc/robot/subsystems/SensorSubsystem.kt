@@ -35,7 +35,7 @@ class SensorSubsystem : Subsystem() {
   val rangeSensor: AnalogInput = AnalogInput(RobotMap.rangeSensorPort)
   
   private val wideAngleCamera: UsbCamera
-  private val notWideAngleCamera: UsbCamera
+  // private val notWideAngleCamera: UsbCamera
 
 
 
@@ -44,10 +44,10 @@ class SensorSubsystem : Subsystem() {
     this.wideAngleCamera.setResolution(480, 360)
     this.wideAngleCamera.setFPS(60)
     this.wideAngleCamera.setExposureAuto()
-    this.notWideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
-    this.notWideAngleCamera.setResolution(480, 360)
-    this.notWideAngleCamera.setFPS(60)
-    this.notWideAngleCamera.setExposureAuto()
+    // this.notWideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
+    // this.notWideAngleCamera.setResolution(480, 360)
+    // this.notWideAngleCamera.setFPS(60)
+    // this.notWideAngleCamera.setExposureAuto()
   }
 
   fun lineSensorActive(): Boolean = (lineSensor.value > lineSensorThreshold)

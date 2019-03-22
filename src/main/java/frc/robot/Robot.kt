@@ -29,6 +29,7 @@ class Robot : TimedRobot() {
     val m_hatchPanelSubsystem: HatchPanelSubsystem = HatchPanelSubsystem()
     val m_liftRobotSubsystem: LiftRobotSubsystem = LiftRobotSubsystem()
     val m_ledSubsystem: LEDSubsystem = LEDSubsystem()
+    val m_raspiSubsystem: RaspiSubsystem = RaspiSubsystem()
     var m_oi: OI? = null
 
     val robotType: String = "Practice"
@@ -46,6 +47,7 @@ class Robot : TimedRobot() {
   init {
     distanceServer.start()
     cameraVisionServer.start()
+    RaspiDataOutputter().start()
     println("Continuing")
   }
   /**
@@ -83,6 +85,7 @@ class Robot : TimedRobot() {
     //println("Cargo Yaw: " + m_sensorSubsystem.cargoNavX.yaw)
     //println("Cargo Roll: " + m_sensorSubsystem.cargoNavX.roll)
     // println("Range: " + m_sensorSubsystem.rangeSensor.voltage)
+    // println("Front LIDAR: ${m_raspiSubsystem.getFrontLIDAR()}")
   }
 
   /**

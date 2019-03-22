@@ -8,6 +8,7 @@
 package frc.robot.subsystems
       
 import edu.wpi.first.wpilibj.command.Subsystem
+import frc.robot.Robot
       
 /**
  * Add your docs here.
@@ -15,14 +16,40 @@ import edu.wpi.first.wpilibj.command.Subsystem
 class RaspiSubsystem: Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  public var frontLIDARInputted: Boolean = false
+  public var frontLIDARValue: Int = 0
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  fun getFrontLIDAR() {
+  fun getFrontLIDAR(): Int {
     // TODO: Communicate with the distance server to get the front LIDAR value
-    return
+    println("Get LIDAR")
+    while (Robot.distanceServer.clientHandlers.size == 0) {}
+    println("Enough clients")
+    Robot.distanceServer.initiateLIDARRequest(0)
+    // TODO: Fix this while loop to implement locks so that things actually work.
+    while (!frontLIDARInputted) {}
+    print("LIDAR value found")
+    frontLIDARInputted = false
+    return frontLIDARValue
+  }
+
+  fun getBackLIDAR() {}
+
+  fun getNearestBayAngle() {}
+}
+
+class RaspiDataOutputter: Thread() {
+  override fun run() {
+    while (true) {
+      // var frontLidarVal = Robot.m_raspiSubsystem.getFrontLIDAR()
+      // if (frontLidarVal != -100) {
+      // }
+      println("Front LIDAR: ${Robot.m_raspiSubsystem.getFrontLIDAR()}")
+      
+    }
   }
 }

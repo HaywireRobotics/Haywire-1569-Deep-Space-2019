@@ -37,6 +37,7 @@ class TCPServer(val port: Int) : Thread(){
 
     // LIDAR sensors are 0-indexed
     fun initiateLIDARRequest(id: Int) {
+        println("Init a request")
         for (client in clientHandlers) {
             client.distanceRequest = id
         }
@@ -67,6 +68,7 @@ class ClientHandler(val clientSocket: Socket) : Thread() {
             // Connection loop
             whileLoop@ while (true) {
                 inputLine = this.inReader.read()
+                println("Read a thing: ${inputLine.toString()}")
                 response = ""
                 forLoop@ for (command in Commands.commands) {
                     var splitInput: List<String> = inputLine.split(" ")
@@ -85,7 +87,9 @@ class ClientHandler(val clientSocket: Socket) : Thread() {
                 // Wait until the robot requests data
                 dataLoop@ while (true) {
                     if (distanceRequest != -1) {
-                        this.outReader.println("d${distanceRequest}")
+                        println("d${distanceRequest.toString()}")
+                        this.outReader.println("d${distanceRequest.toString()}")
+                        println("Send a distance request")
                         distanceRequest = -1
                         break@dataLoop
                     }
@@ -95,7 +99,9 @@ class ClientHandler(val clientSocket: Socket) : Thread() {
                         break@dataLoop
                     }
                 }
+                println("out of @dataLoop")
             }
+            println("out of @whileLoop")
             this.outReader.println(response)
 
             this.inReader.close()
