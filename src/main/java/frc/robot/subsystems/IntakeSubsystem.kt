@@ -8,6 +8,7 @@
 package frc.robot.subsystems
 
 import frc.robot.RobotMap
+import frc.robot.Robot
 
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.DoubleSolenoid
@@ -23,7 +24,8 @@ class IntakeSubsystem: Subsystem() {
   val LeftIntake = Spark(RobotMap.leftIntakePort)
   val RightIntake = Spark(RobotMap.rightIntakePort)
 
-  val IntakeHinge = WPI_TalonSRX(RobotMap.intakeLiftMotor)
+  val IntakeHingeTalon = WPI_TalonSRX(RobotMap.intakeLiftMotor)
+  val IntakeHingeSpark = Spark(RobotMap.intakeLiftMotor)
 
   val piston: DoubleSolenoid = DoubleSolenoid(RobotMap.intakePort1, RobotMap.intakePort2)
       
@@ -31,6 +33,16 @@ class IntakeSubsystem: Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     
+  }
+
+  fun setIntakeHinge(power: Double) {
+    if (Robot.robotType == "Practice") {
+      IntakeHingeTalon.set(power)
+    } else if (Robot.robotType == "Competition") {
+      IntakeHingeSpark.set(power)
+    } else {
+      throw Exception("Invalid Robot Type: ${Robot.robotType}")
+    }
   }
 
   fun expandPiston() = piston.set(DoubleSolenoid.Value.kForward)

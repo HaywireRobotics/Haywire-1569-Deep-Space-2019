@@ -48,7 +48,7 @@ class TeleopCommand : Command() {
       if (Robot.m_sensorSubsystem.cargoNavX.pitch > 20 && joyInput < -0.2) {
         joyInput = -0.2
       }
-      Robot.m_intakeSubsystem.IntakeHinge.set(joyInput / 4.0)
+      Robot.m_intakeSubsystem.setIntakeHinge(joyInput / 4.0)
     }  else {
       var holdDrive = 0.3
       if (holdAngle < -50f) {
@@ -60,7 +60,7 @@ class TeleopCommand : Command() {
       }
       var motSpeed = maxOf(joySpeed, holdDrive)
      // println(motSpeed)
-      Robot.m_intakeSubsystem.IntakeHinge.set(motSpeed)
+      Robot.m_intakeSubsystem.setIntakeHinge(motSpeed)
     }
     if (Robot.climbing) {
       // Robot.m_liftRobotSubsystem.johnsonMotor.set(Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())

@@ -52,7 +52,7 @@ class CargoArmToAngle(val targetAngle: Double): Command() {
       robotPower = 0.0
     }
     println(robotPower)
-    Robot.m_intakeSubsystem.IntakeHinge.set(robotPower)
+    Robot.m_intakeSubsystem.setIntakeHinge(robotPower)
     println("Executed")
   }
 
