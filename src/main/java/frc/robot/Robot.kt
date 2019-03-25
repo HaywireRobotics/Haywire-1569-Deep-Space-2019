@@ -32,6 +32,7 @@ class Robot : TimedRobot() {
     val m_raspiSubsystem: RaspiSubsystem = RaspiSubsystem()
     var m_oi: OI? = null
 
+    // Robot type is either Practice or Competition
     val robotType: String = "Practice"
     var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
