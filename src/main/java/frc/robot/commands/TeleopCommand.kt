@@ -27,7 +27,6 @@ class TeleopCommand : Command() {
   // Called repeatedly when this Command is scheduled to run
   override fun execute() {
     // Drive based on joystick input
-    // Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), Robot.m_oi?.rightJoystick?.getY()!!.toDouble())
     if (Robot.robotDirectionInverted) {
       Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.rightJoystick?.getY()!!.toDouble(), Robot.m_oi?.leftJoystick?.getY()!!.toDouble());
     }
@@ -38,10 +37,8 @@ class TeleopCommand : Command() {
     if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
       cargoLiftState = "hold"
       holdAngle = Robot.m_sensorSubsystem.cargoNavX.pitch
-     // println("Hold!!")
     } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
       cargoLiftState = "free"
-     // println("Free!")
     }
     if (cargoLiftState == "free") {
       var joyInput =  Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()
@@ -59,21 +56,13 @@ class TeleopCommand : Command() {
         joySpeed = maxOf(joySpeed, 0.2)
       }
       var motSpeed = maxOf(joySpeed, holdDrive)
-     // println(motSpeed)
       Robot.m_intakeSubsystem.setIntakeHinge(motSpeed)
     }
     if (Robot.climbing) {
-      // Robot.m_liftRobotSubsystem.johnsonMotor.set(Robot.m_oi?.manipulatorJoystick!!.getZ().toDouble())
       Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.28)
-      // println("Troy Philip JOHNSON!!!!")
     } else {
       Robot.m_liftRobotSubsystem.johnsonMotor.set(0.0)
     }
-    
-    // if (Robot.m_oi?.manipulatorJoystick!!.getRawButton(RobotMap.ejectorButton)) {
-    //   println("Start Button!")
-    //   EjectHatchPanel().start()
-    // }
   }
 
   // Make this return true when this Command no longer needs to run execute()
