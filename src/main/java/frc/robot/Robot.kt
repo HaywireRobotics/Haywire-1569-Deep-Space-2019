@@ -76,17 +76,6 @@ class Robot : TimedRobot() {
    */
   override fun robotPeriodic() {
     m_ledSubsystem.applyColor()
-    // println("Value: " + m_sensorSubsystem.lineSensor.value.toString()) 
-    // println("Voltage: " + m_sensorSubsystem.lineSensor.voltage.toString()) 2(3/4") 2(2 1/4")
-    // println("Boolean: " + m_sensorSubsystem.lineSensorActive().toString()) 2'3" 8'1/4"
-     //println("Navx Pitch: " + m_sensorSubsystem.navXMXP.pitch)
-     //println("Navx Yaw: " + m_sensorSubsystem.navXMXP.yaw)
-    //println("Navx Roll: " + m_sensorSubsystem.navXMXP.roll)
-    // println("Cargo Pitch: " + m_sensorSubsystem.cargoNavX.pitch)
-    //println("Cargo Yaw: " + m_sensorSubsystem.cargoNavX.yaw)
-    //println("Cargo Roll: " + m_sensorSubsystem.cargoNavX.roll)
-    // println("Range: " + m_sensorSubsystem.rangeSensor.voltage)
-    // println("Front LIDAR: ${m_raspiSubsystem.getFrontLIDAR()}")
   }
 
   /**
@@ -95,7 +84,6 @@ class Robot : TimedRobot() {
    * the robot is disabled.
    */
   override fun disabledInit() {
-    // DropRobot().start()
     if (!autonomousRun) {
       Robot.robotDirectionInverted = false
       m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
@@ -103,9 +91,7 @@ class Robot : TimedRobot() {
     }
   }
 
-  override fun disabledPeriodic() {
-    // Scheduler.getInstance().run()
-  }
+  override fun disabledPeriodic() {}
 
   /**
    * This autonomous (along with the chooser code above) shows how to select
@@ -138,9 +124,7 @@ class Robot : TimedRobot() {
   /**
    * This function is called periodically during autonomous
    */
-  override fun autonomousPeriodic() {
-    Scheduler.getInstance().run()
-  }
+  override fun autonomousPeriodic() = Scheduler.getInstance().run()
 
   override fun teleopInit() {
     // This makes sure that the autonomous stops running when
@@ -151,7 +135,6 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.stopFrontPistons()
     m_autonomousCommand?.cancel()
     TeleopCommand().start()
-    // ApplyLEDColor().start()
     climbing = false
     if (!autonomousRun) {
       robotDirectionInverted = false
@@ -163,20 +146,12 @@ class Robot : TimedRobot() {
   /**
    * This function is called periodically during operator control
    */
-  override fun teleopPeriodic() {
-    // println("Compressor Current: " + m_hatchPanelSubsystem.compressor.compressorCurrent)
-    // println("Pressure Switch: " + m_hatchPanelSubsystem.compressor.getPressureSwitchValue())
-    Scheduler.getInstance().run()
-    
-  }
+  override fun teleopPeriodic() = Scheduler.getInstance().run()
 
   /**
    * This function is called periodically during test mode
    */
   override fun testPeriodic() {
-    // println("X: " + m_sensorSubsystem.gyro.getX())
-    // println("Y: " + m_sensorSubsystem.gyro.getY())
-    // println("Z: " + m_sensorSubsystem.gyro.getZ())
     SmartDashboard.putData(m_liftRobotSubsystem.BackLiftSolenoid)
   }
 }
