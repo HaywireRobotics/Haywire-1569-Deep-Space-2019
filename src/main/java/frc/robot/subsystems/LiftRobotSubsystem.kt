@@ -19,48 +19,28 @@ import frc.robot.RobotMap
 class LiftRobotSubsystem : Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands
-  private val FrontLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort1, RobotMap.liftRobotPort2)
+  val FrontLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort1, RobotMap.liftRobotPort2)
   val BackLiftSolenoid = DoubleSolenoid(RobotMap.liftRobotPort3, RobotMap.liftRobotPort4)
-
-  // private val BackLiftSolenoid1 = Solenoid(RobotMap.liftRobotPort3)
-  // private val BackLiftSolenoid2 = Solenoid(RobotMap.liftRobotPort4)
 
   var johnsonMotor: WPI_VictorSPX = WPI_VictorSPX (RobotMap.johnsonMotorPort)
   var stringMotor: WPI_VictorSPX = WPI_VictorSPX(RobotMap.stringMotorPort )
-  //val compressor: Compressor = Compressor()
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
-   fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
-  //fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
+  
+  // Front Pistons Functions
+  fun extendFrontPistons  () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kForward)
+
   fun retractFrontPistons () = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   
   fun stopFrontPistons() = this.FrontLiftSolenoid.set(DoubleSolenoid.Value.kOff)
 
-   fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
-//  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
-  fun retractBackPistons () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
-  // fun extendBackPistons() {
-  //   this.BackLiftSolenoid1.set(true);
-  //   this.BackLiftSolenoid2.set(true);
-  // }
+  // Back Pistons Functions
+  fun extendBackPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
 
-  // fun retractBackPistons() {
-  //   this.BackLiftSolenoid1.set(false);
-  //   this.BackLiftSolenoid2.set(false);
-  // }
+  fun retractBackPistons () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
   
   fun stopBackPistons() = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kOff)
-
-  // fun stopBackPistons() {
-
-  // }
-
-  //fun extendAllPistons  () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kForward)
-  //fun retractAllPistons () = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kReverse)
-  
-  //fun stopAllPistons() = this.BackLiftSolenoid.set(DoubleSolenoid.Value.kOff)
-  
 }
