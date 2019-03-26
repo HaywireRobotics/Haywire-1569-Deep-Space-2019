@@ -26,14 +26,17 @@ class TeleopCommand : Command() {
 
   // Called repeatedly when this Command is scheduled to run
   override fun execute() {
-    // Drive based on joystick input
+    // Drive based on joystick input and robot direction
     if (Robot.robotDirectionInverted) {
       Robot.m_driveTrainSubsystem.tankDrive(Robot.m_oi?.rightJoystick?.getY()!!.toDouble(), Robot.m_oi?.leftJoystick?.getY()!!.toDouble());
     }
     else {
       Robot.m_driveTrainSubsystem.tankDrive(-1 * Robot.m_oi?.leftJoystick?.getY()!!.toDouble(), -1 * Robot.m_oi?.rightJoystick?.getY()!!.toDouble());
     }
+    // Hatch Panel Arm using the joystick
     Robot.m_hatchPanelSubsystem.HatchArm.set(-1 * (Robot.m_oi?.manipulatorJoystick?.getY()!!.toDouble()/2))
+    
+    // Cargo Arm using a joystick and some fancy holding code
     if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
       cargoLiftState = "hold"
       holdAngle = Robot.m_sensorSubsystem.cargoNavX.pitch
@@ -58,6 +61,8 @@ class TeleopCommand : Command() {
       var motSpeed = maxOf(joySpeed, holdDrive)
       Robot.m_intakeSubsystem.setIntakeHinge(motSpeed)
     }
+
+    // Controlling the johnson motor based on if the robot is climbing or not.
     if (Robot.climbing) {
       Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.28)
     } else {
