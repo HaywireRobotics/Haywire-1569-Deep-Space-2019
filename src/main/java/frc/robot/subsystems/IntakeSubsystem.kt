@@ -32,7 +32,6 @@ class IntakeSubsystem: Subsystem() {
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    
   }
 
   fun setIntakeHinge(power: Double) {

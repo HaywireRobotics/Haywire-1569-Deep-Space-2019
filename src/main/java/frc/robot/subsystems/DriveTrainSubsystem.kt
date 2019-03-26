@@ -30,8 +30,6 @@ class DriveTrainSubsystem : Subsystem() {
   private val driverightgroup = SpeedControllerGroup(rightFront, rightRear)
 
   private val myRobot = DifferentialDrive(driveleftgroup, driverightgroup)
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
