@@ -81,7 +81,8 @@ class OI {
     button8.whenPressed(StopBack())
     button9.whenPressed(ExtendBack())
 
-    button10.whenPressed(RetractBack())
+    //button10.whenPressed(RetractBack())
+    button10.whileHeld(RetractBack())
     button11.whenPressed(RetractFront())
 
     manipulate2button1.whenPressed(ExpandCargoIntake())
@@ -90,8 +91,9 @@ class OI {
     manipulate2button4.whileHeld(WrapString())
     manipulate2button5.whenPressed(WrapStringInverted())
 
-    // manipulate2button6.whenPressed(StabilizeLift())
-    manipulate2button6.whileHeld(StabilizeLiftV2())
+    manipulate2button6.whileHeld(LiftFront())
+    manipulate2button7.whileHeld(LiftBack())
+    // manipulate2button6.whileHeld(StabilizeLiftV2())
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
     rightJoystickButton1.whenPressed(SwitchDriveDirection())

@@ -13,7 +13,7 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class StabilizeLift: Command() {
+class LiftBack: Command() {
   init {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_sensorSubsystem)
@@ -22,9 +22,9 @@ class StabilizeLift: Command() {
 
   // Called just before this Command runs the first time
   override fun initialize () {
-    Robot.m_liftRobotSubsystem.extendFrontPistons()
-    Robot.m_liftRobotSubsystem.extendBackPistons()
-    Robot.climbing = true
+    //Robot.m_liftRobotSubsystem.extendFrontPistons()
+     Robot.m_liftRobotSubsystem.extendBackPistons()
+    //Robot.climbing = true
   }
 
   // Called repeatedly when this Command is scheduled to run
