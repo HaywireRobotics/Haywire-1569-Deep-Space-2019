@@ -33,7 +33,7 @@ class Robot : TimedRobot() {
     var m_oi: OI? = null
 
     // Robot type is either Practice or Competition
-    val robotType: String = "Practice"
+    val robotType: String = "Competition"
     var climbing: Boolean = true
     var robotDirectionInverted: Boolean = false
     var autonomousRun: Boolean = false
