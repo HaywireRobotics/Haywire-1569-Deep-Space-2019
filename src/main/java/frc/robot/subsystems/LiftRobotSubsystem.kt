@@ -27,7 +27,7 @@ class LiftRobotSubsystem : Subsystem() {
 
   var johnsonMotor: WPI_VictorSPX = WPI_VictorSPX (RobotMap.johnsonMotorPort)
   var stringMotor: WPI_VictorSPX = WPI_VictorSPX(RobotMap.stringMotorPort )
-  //val compressor: Compressor = Compressor()
+  val compressor: Compressor = Compressor()
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.

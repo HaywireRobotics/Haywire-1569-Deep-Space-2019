@@ -68,6 +68,7 @@ class OI {
   
   val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9)
   val rightJoystickButton1: JoystickButton = JoystickButton(rightJoystick, 1)
+  val rightJoystickButton11: JoystickButton = JoystickButton(rightJoystick, 11)
   init {
     button1.whenPressed(EjectHatchPanel())
     button2.whileHeld(IntakeCargo())
@@ -97,5 +98,6 @@ class OI {
 
     rightJoystickButton9.whenPressed(SwitchDriveDirection())
     rightJoystickButton1.whenPressed(SwitchDriveDirection())
+    rightJoystickButton11.whenPressed(SwitchCompressorPower())
   }
 }

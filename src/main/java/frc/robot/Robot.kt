@@ -132,6 +132,7 @@ class Robot : TimedRobot() {
     m_chooser.selected?.start()
     autonomousRun = true
     robotDirectionInverted = false
+    m_liftRobotSubsystem.compressor.setClosedLoopControl(false)
     m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
   }
 

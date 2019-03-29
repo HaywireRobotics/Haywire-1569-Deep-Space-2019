@@ -20,8 +20,6 @@ class HatchPanelSubsystem : Subsystem() {
   val HatchArm = Spark(RobotMap.hatchMotorPort)
   private val HatchPanelSolenoid = DoubleSolenoid(RobotMap.hatchPanelPort1, RobotMap.hatchPanelPort2)
 
-  val compressor: Compressor = Compressor()
-
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
