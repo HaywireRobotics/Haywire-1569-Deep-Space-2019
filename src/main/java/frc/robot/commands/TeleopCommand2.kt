@@ -13,7 +13,7 @@ import frc.robot.Robot
 /**
  * An example command. You can replace me with your own command.
  */
-class TeleopCommand : Command() {
+class TeleopCommand2 : Command() {
   var cargoLiftState = "hold"
   var holdAngle = -90f
   init {
