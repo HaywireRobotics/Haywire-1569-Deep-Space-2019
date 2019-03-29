@@ -22,6 +22,7 @@ class Robot : TimedRobot() {
 
   companion object {
     val m_intakeSubsystem: IntakeSubsystem = IntakeSubsystem()
+    val m_pidIntakeSubsystem: PIDIntakeSubsystem = PIDIntakeSubsystem()
     val m_exampleSubsystem: ExampleSubsystem = ExampleSubsystem()
     val m_driveTrainSubsystem: DriveTrainSubsystem = DriveTrainSubsystem()
     val m_sensorSubsystem: SensorSubsystem = SensorSubsystem()
@@ -50,6 +51,7 @@ class Robot : TimedRobot() {
     cameraVisionServer.start()
     RaspiDataOutputter().start()
     println("Continuing")
+    m_pidIntakeSubsystem.disable()
   }
   /**
    * This function is run when the robot is first started up and should be

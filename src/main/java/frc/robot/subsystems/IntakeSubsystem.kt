@@ -12,13 +12,13 @@ import frc.robot.Robot
 
 import edu.wpi.first.wpilibj.Spark
 import edu.wpi.first.wpilibj.DoubleSolenoid
-import edu.wpi.first.wpilibj.command.PIDSubsystem
+import edu.wpi.first.wpilibj.command.Subsystem
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX
       
 /**
  * Add your docs here.
  */
-class IntakeSubsystem(): PIDSubsystem("CargoArm",-0.1,0.001,0.0) {
+class IntakeSubsystem(): Subsystem() {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   val LeftIntake = Spark(RobotMap.leftIntakePort)
@@ -48,11 +48,4 @@ class IntakeSubsystem(): PIDSubsystem("CargoArm",-0.1,0.001,0.0) {
   fun expandPiston() = piston.set(DoubleSolenoid.Value.kForward)
 
   fun contractPiston() = piston.set(DoubleSolenoid.Value.kReverse)
-
- override  fun usePIDOutput(output: Double) {
-   setIntakeHinge(output)
- }
- override fun returnPIDInput() :Double{
-   return Robot.m_sensorSubsystem.cargoNavX.pitch.toDouble()
- }
 }
