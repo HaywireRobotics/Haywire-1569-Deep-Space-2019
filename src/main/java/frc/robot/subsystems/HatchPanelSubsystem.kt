@@ -24,7 +24,9 @@ class HatchPanelSubsystem : Subsystem() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+  
   fun extendPistons  () = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kForward)
+
   fun retractPistons () = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kReverse)
   
   fun stopPistons() = this.HatchPanelSolenoid.set(DoubleSolenoid.Value.kOff)

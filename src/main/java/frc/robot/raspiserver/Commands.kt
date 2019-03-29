@@ -18,7 +18,6 @@ class Commands {
         override val commandString: String = "d"
         override val commandArgs: String = "{id} {distance in mm}"
         override fun run(args: List<String>): CommandResponse {
-            // println(args[0].toString() + ":" + args[1].toString())
             try {
                 Robot.m_raspiSubsystem.lidarDataLock.lock()
                 Robot.m_raspiSubsystem.frontLIDARValue = args[1].toInt()
@@ -26,7 +25,6 @@ class Commands {
             } finally {
                 Robot.m_raspiSubsystem.lidarDataLock.unlock()
             }
-            // println("Set the things")
             return CommandResponse("NuLl", false)
         }
     }

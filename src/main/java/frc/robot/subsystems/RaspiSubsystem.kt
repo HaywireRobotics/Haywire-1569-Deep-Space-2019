@@ -27,12 +27,8 @@ class RaspiSubsystem: Subsystem() {
   }
 
   fun getFrontLIDAR(): Int {
-    // TODO: Communicate with the distance server to get the front LIDAR value
-    // println("Get LIDAR")
     while (Robot.distanceServer.clientHandlers.size == 0) {}
-    // println("Enough clients")
     Robot.distanceServer.initiateLIDARRequest(0)
-    // TODO: Fix this while loop to implement locks so that things actually work.
     while (true) {
       try {
         lidarDataLock.lock()
@@ -43,7 +39,6 @@ class RaspiSubsystem: Subsystem() {
         lidarDataLock.unlock()
       }
     }
-    // print("LIDAR value found")
     frontLIDARInputted = false
     return frontLIDARValue
   }
@@ -56,9 +51,6 @@ class RaspiSubsystem: Subsystem() {
 class RaspiDataOutputter: Thread() {
   override fun run() {
     while (true) {
-      // var frontLidarVal = Robot.m_raspiSubsystem.getFrontLIDAR()
-      // if (frontLidarVal != -100) {
-      // }
       println("Front LIDAR: ${Robot.m_raspiSubsystem.getFrontLIDAR()}")
       
     }

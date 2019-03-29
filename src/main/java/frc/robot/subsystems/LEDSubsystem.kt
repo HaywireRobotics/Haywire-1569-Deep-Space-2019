@@ -22,21 +22,13 @@ class LEDSubsystem: Subsystem() {
   // here. Call these from Commands.
   var ledController: Spark = Spark(RobotMap.ledPort)
   var currentLEDValue: Double = 0.0
-  
-  init {
-    // ledController.setSafetyEnabled(false)
-  }
       
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(ApplyLEDColor());
   }
 
-  // fun <Color: Enum<Color>> setColor(color: Color) {
-  //   ledController.set(color.pwm)
-  // }
-  // fun <E: Enum<E>> setColor(color: E) = println(color.name)
-
+  // To make this more "kotliny", setColor() wouldn't exist and code would interface with currentLEDValue directly, but I'm lazy
   fun setColor(pwm: Double) {
     currentLEDValue = pwm
   }
