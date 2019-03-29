@@ -40,8 +40,12 @@ class TeleopCommand2 : Command() {
     if (Robot.m_oi?.intakeJoystick?.getY()!! > 0.05) {
       cargoLiftState = "hold"
       holdAngle = Robot.m_sensorSubsystem.cargoNavX.pitch
+      Robot.m_intakeSubsystem.setpoint = holdAngle.toDouble();
+      Robot.m_intakeSubsystem.enable()
     } else if(Robot.m_oi?.intakeJoystick?.getY()!! < -0.05) {
+      Robot.m_intakeSubsystem.disable()
       cargoLiftState = "free"
+
     }
     if (cargoLiftState == "free") {
       var joyInput =  Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()
