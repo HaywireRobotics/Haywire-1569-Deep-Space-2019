@@ -38,8 +38,8 @@ class SensorSubsystem : Subsystem() {
 
   init {
     this.wideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
-    this.wideAngleCamera.setResolution(480, 360)
-    this.wideAngleCamera.setFPS(60)
+    this.wideAngleCamera.setResolution(160, 120)
+    this.wideAngleCamera.setFPS(30)
     this.wideAngleCamera.setExposureAuto()
     // this.notWideAngleCamera = CameraServer.getInstance().startAutomaticCapture()
     // this.notWideAngleCamera.setResolution(480, 360)

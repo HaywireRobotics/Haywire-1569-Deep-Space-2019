@@ -46,11 +46,11 @@ class TeleopCommand : Command() {
     if (cargoLiftState == "free") {
       var joyInput =  Robot.m_oi?.intakeJoystick?.getY()!!.toDouble()
       if (Robot.m_sensorSubsystem.cargoNavX.pitch > -20 && joyInput < -0.2) {
-        joyInput = -0.2
+       // joyInput = -0.2
       }
-      Robot.m_intakeSubsystem.setIntakeHinge(joyInput / 4.0)
+      Robot.m_intakeSubsystem.setIntakeHinge(joyInput / 3.0)
     }  else { //hold mode
-      var holdDrive = 0.3
+      var holdDrive = 0.22
       if (holdAngle < -40f) {
         holdDrive = 0.15
       } else if (holdAngle < -55f) {
