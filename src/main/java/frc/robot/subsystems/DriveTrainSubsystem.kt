@@ -26,10 +26,10 @@ class DriveTrainSubsystem : Subsystem() {
   private val rightFront: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainRightFront)
   private val rightRear: WPI_VictorSPX = WPI_VictorSPX(RobotMap.driveTrainRightRear)
 
-  private val driveleftgroup = SpeedControllerGroup(leftFront, leftRear)
-  private val driverightgroup = SpeedControllerGroup(rightFront, rightRear)
+  private val driveLeftGroup = SpeedControllerGroup(leftFront, leftRear)
+  private val driveRightGroup = SpeedControllerGroup(rightFront, rightRear)
 
-  private val myRobot = DifferentialDrive(driveleftgroup, driverightgroup)
+  private val myRobot = DifferentialDrive(driveLeftGroup, driveRightGroup)
 
   override fun initDefaultCommand() {
     // Set the default command for a subsystem here.
