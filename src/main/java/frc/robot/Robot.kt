@@ -49,7 +49,6 @@ class Robot : TimedRobot() {
     distanceServer.start()
     cameraVisionServer.start()
     RaspiDataOutputter().start()
-    println("Continuing")
   }
   /**
    * This function is run when the robot is first started up and should be
@@ -58,12 +57,10 @@ class Robot : TimedRobot() {
   override fun robotInit() {
     m_oi = OI()
     m_chooser.setDefaultOption("Default Auto", ExampleCommand())
-    // m_chooser.addOption("My Auto", MyAutoCommand())
     SmartDashboard.putData("Auto mode", m_chooser)
     m_liftRobotSubsystem.retractBackPistons()
     m_liftRobotSubsystem.retractFrontPistons()
     m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
-    println("Still moving on")
   }
 
   /**
@@ -74,9 +71,7 @@ class Robot : TimedRobot() {
    * <p>This runs after the mode specific periodic functions, but before
    * LiveWindow and SmartDashboard integrated updating.
    */
-  override fun robotPeriodic() {
-    m_ledSubsystem.applyColor()
-  }
+  override fun robotPeriodic() = m_ledSubsystem.applyColor()
 
   /**
    * This function is called once each time the robot enters Disabled mode.
@@ -87,7 +82,6 @@ class Robot : TimedRobot() {
     if (!autonomousRun) {
       Robot.robotDirectionInverted = false
       m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
-      println("Switch the drive direction in disabled")
     }
   }
 
