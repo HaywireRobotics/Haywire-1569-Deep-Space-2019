@@ -66,9 +66,10 @@ class OI {
   val manipulate2button6: JoystickButton = JoystickButton(intakeJoystick, 6)
   val manipulate2button7: JoystickButton = JoystickButton(intakeJoystick, 7)
   
-  val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9)
   val rightJoystickButton1: JoystickButton = JoystickButton(rightJoystick, 1)
+  val rightJoystickButton9: JoystickButton = JoystickButton(rightJoystick, 9)
   val rightJoystickButton11: JoystickButton = JoystickButton(rightJoystick, 11)
+
   init {
     button1.whenPressed(EjectHatchPanel())
     button2.whileHeld(IntakeCargo())
@@ -95,8 +96,8 @@ class OI {
     manipulate2button7.whileHeld(LiftBack())
     // manipulate2button6.whileHeld(StabilizeLiftV2())
 
-    rightJoystickButton9.whenPressed(SwitchDriveDirection())
     rightJoystickButton1.whenPressed(SwitchDriveDirection())
+    rightJoystickButton9.whenPressed(SwitchDriveDirection())
     rightJoystickButton11.whenPressed(SwitchCompressorPower())
   }
 }
