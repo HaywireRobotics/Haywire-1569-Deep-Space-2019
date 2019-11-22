@@ -66,6 +66,7 @@ class Robot : TimedRobot() {
     m_liftRobotSubsystem.retractFrontPistons()
     m_ledSubsystem.setColor(SwitchDriveDirection.forwardColor)
     println("Still moving on")
+    m_liftRobotSubsystem.compressor.clearAllPCMStickyFaults()
   }
 
   /**

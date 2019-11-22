@@ -66,7 +66,7 @@ class TeleopCommand : Command() {
 
     // Controlling the johnson motor based on if the robot is climbing or not.
     if (Robot.climbing) {
-      Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.4)
+      Robot.m_liftRobotSubsystem.johnsonMotor.set(-0.3)
     } else {
       Robot.m_liftRobotSubsystem.johnsonMotor.set(0.0)
     }

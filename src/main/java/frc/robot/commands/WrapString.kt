@@ -25,6 +25,7 @@ class WrapString: Command() {
   override fun initialize() {
     this.time.reset()
     this.time.start()
+
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -34,6 +35,7 @@ class WrapString: Command() {
     //   false -> Robot.m_liftRobotSubsystem.stringMotor.set(0.25)
     
     // }
+    Robot.climbing = false
     Robot.m_liftRobotSubsystem.stringMotor.set(0.2)
   }
 
